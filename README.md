@@ -1,1 +1,1 @@
-# jotaro-software-engineering
+# Jotaro Inc Scrum Project a part of Software Engineering Class
