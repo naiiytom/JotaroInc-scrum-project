@@ -89,6 +89,8 @@ switch (ENVIRONMENT)
 		exit(1); // EXIT_ERROR
 }
 
+date_default_timezone_set('Asia/Bangkok');
+
 /*
  *---------------------------------------------------------------
  * SYSTEM DIRECTORY NAME
