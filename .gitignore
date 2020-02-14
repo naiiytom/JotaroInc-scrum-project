@@ -104,8 +104,7 @@ dist
 .tern-port
 
 # mysqlfile
-<<<<<<< HEAD
 db/data/
-=======
-./db/data/
->>>>>>> 6f8e4cc1dcbf65328d87c5b7b2d6851f72387fbe
+
+# codeigniter
+public/user_guide/
