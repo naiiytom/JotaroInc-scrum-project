@@ -16,7 +16,7 @@ services:
       - MYSQL_PASSWORD=p@ssw0rd123456
 
   php:
-    image: php:7-fpm-alpine
+    build: ./
     container_name: lemp_php
     restart: always
     volumes: 
