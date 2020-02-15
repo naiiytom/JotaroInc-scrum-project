@@ -1,8 +1,9 @@
-version: "2.2"
+version: "3.7"
 
 services:
 
   app:
+    container_name: stack_php
     volumes:
       - "./:/app"
     working_dir: /app
@@ -14,14 +15,15 @@ services:
       dockerfile: dev.Dockerfile
 
   db:
-      image: mariadb
-      environment: 
-        MYSQL_ALLOW_EMPTY_PASSWORD: 1
-        MYSQL_DATABASE: ${DB_DATABASE}
-      ports: 
-        - 3306:3306
-      volumes:
-        - "db-data:/var/lib/mysql/data"
+    container_name: stack_mariadb
+    image: mariadb
+    environment: 
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: ${DB_DATABASE}
+    ports: 
+      - 3306:3306
+    volumes:
+      - "db-data:/var/lib/mysql/data"
 
 volumes: 
   db-data: {}
