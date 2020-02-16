@@ -99,4 +99,15 @@ class MyModel extends CI_Model {
         return array('status' => 200,'message' => 'Data has been deleted.');
     }
 
+
+    #extra feature for the future
+    public function item_all_data()
+    {
+        return $this->db->select('id, item_name')->from('items')->get()->result();
+    }
+
+    public function item_detail_data($id)
+    {
+        return $this->db->select('id, item_name')->where('id',$id)->from('items')->get()->row();
+    }
 }
