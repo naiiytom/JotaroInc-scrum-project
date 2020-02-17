@@ -1,0 +1,16 @@
+db:
+  - db-da/*
+
+docker:
+  - docker/**/*
+  - docker-compose.yaml
+
+controllers:
+  - public/application/controllers/*
+
+models:
+  - public/application/models/*
+
+views:
+  - public/application/view/*
+
