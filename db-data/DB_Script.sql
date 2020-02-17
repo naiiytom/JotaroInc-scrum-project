@@ -55,7 +55,7 @@ CREATE TABLE `room` (
   `BUID` varchar(3)  NOT NULL,
   `RID` varchar(3) NOT NULL,
   `Name` varchar(10) NOT NULL,
-  CONSTRAINT room_pk 			PRIMARY KEY(BUID,RID),
+  CONSTRAINT room_pk 			PRIMARY KEY(RID),
   CONSTRAINT room_fk_building	FOREIGN KEY(BUID)
   REFERENCES building(BUID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
