@@ -14,8 +14,8 @@ CREATE TABLE `admin` (
 CREATE TABLE `borrow` (
   `UID` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `AID` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `RID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
-  `IID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `RID` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `IID` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `BOID` varchar(7) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `BorrowDate` date NOT NULL,
   `ReturnDate` date DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `borrow` (
 --
 
 CREATE TABLE `building` (
-  `BUID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `BUID` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -41,8 +41,8 @@ CREATE TABLE `building` (
 --
 
 CREATE TABLE `item` (
-  `RID` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `IID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `RID` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IID` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `SIN` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Brand` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -58,11 +58,11 @@ CREATE TABLE `item` (
 CREATE TABLE `maintenance` (
   `UID` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `AID` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `RID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
-  `IID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `RID` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `IID` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `MID` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
-  `Pic` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Des` longblob
+  `Pic` longblob,
+  `Des` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -72,8 +72,8 @@ CREATE TABLE `maintenance` (
 --
 
 CREATE TABLE `room` (
-  `BUID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
-  `RID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `BUID` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `RID` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -84,7 +84,6 @@ CREATE TABLE `room` (
 --
 
 CREATE TABLE `status` (
-  `IID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `SID` char(4) COLLATE utf8_unicode_ci NOT NULL,
   `Status` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -96,7 +95,7 @@ CREATE TABLE `status` (
 --
 
 CREATE TABLE `type` (
-  `IID` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `IID` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `TID` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -163,8 +162,7 @@ ALTER TABLE `room`
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
-  ADD PRIMARY KEY (`SID`),
-  ADD KEY `status_fk_item` (`IID`);
+  ADD PRIMARY KEY (`SID`);
 
 --
 -- Indexes for table `type`
@@ -211,11 +209,6 @@ ALTER TABLE `maintenance`
 ALTER TABLE `room`
   ADD CONSTRAINT `room_fk_building` FOREIGN KEY (`BUID`) REFERENCES `building` (`BUID`);
 
---
--- Constraints for table `status`
---
-ALTER TABLE `status`
-  ADD CONSTRAINT `status_fk_item` FOREIGN KEY (`IID`) REFERENCES `item` (`IID`);
 
 --
 -- Constraints for table `type`
@@ -223,3 +216,27 @@ ALTER TABLE `status`
 ALTER TABLE `type`
   ADD CONSTRAINT `type_fk_item` FOREIGN KEY (`IID`) REFERENCES `item` (`IID`);
 COMMIT;
+
+
+
+-----------------------------------------------------------------
+--insert data into table
+insert into building values('SC09', 'อาคารวิทยวิภาส');
+insert into building values('SC06', 'สาขาวิชาวิทยาการคอมพิวเตอร์');
+
+
+insert into room values('SC09', '9227', 'ห้องปฎิบัติการ 7');
+insert into room values('SC06', '6601', 'ห้องปฎบัติการทางฐานข้อมูล');
+
+
+insert into status values('01', 'Available');
+insert into status values('02', 'Borrowed');
+insert into status values('03', 'Reserved');
+insert into status values('04', 'Defect');
+insert into status values('05', 'Checking');
+
+
+insert into item values('6601', '0000001', '01', 'Projector 42 Inches', 'Samsung', 'AF4U');
+insert into item(`iid`, `sin`, `name`) values('0000002', '04', 'Server Racket Octa-Core CPU');
+
+insert into maintenance(`iid`, `mid`, `des`) values('0000002', '001', 'Server does not bootup');
