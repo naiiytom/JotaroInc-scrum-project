@@ -100,15 +100,15 @@ class MyModel extends CI_Model {
     }
 
 
-    #extra feature for the future
+    #database method for table item - DONE => get_all, get_one, create, update  TODO => delete
     public function item_all_data()
     {
-        return $this->db->select('iid, name, rid, sin, brand, model')->from('item')->get()->result();
+        return $this->db->select('*')->from('item')->get()->result();
     }
 
     public function item_detail_data($id)
     {
-        return $this->db->select('iid, name, rid, sin, brand, model')->where('iid',$id)->from('item')->get()->row();
+        return $this->db->select('*')->where('iid',$id)->from('item')->get()->row();
     }
 
     public function item_create_data($data)
@@ -122,4 +122,22 @@ class MyModel extends CI_Model {
         $this->db->where('iid',$id)->update('item',$data);
         return array('status' => 200, 'message' => 'Data has been update.');
     }
+
+    #database method for table maintenance - DONE => get_all, get_one, create  TODO => update, delete
+    public function maintenance_all_data()
+    {
+        return $this->db->select('*')->from('maintenance')->get()->result();
+    }
+
+    public function maintenance_detail_data($id)
+    {
+        return $this->db->select('*')->where('iid',$id)->from('maintenance')->get()->row();
+    }
+
+    public function maintenance_create_data($data)
+    {
+        $this->db->insert('maintenance', $data);
+        return array('status' => 200, 'message' => 'Data has been created.');
+    }
+
 }
