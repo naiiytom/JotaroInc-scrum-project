@@ -36,14 +36,19 @@ class Maintenance extends CI_Controller {
         }
 	}
 	
-	public function create($data)
+	public function create()
 	{
 		$method = $_SERVER['REQUEST_METHOD'];
 		if($method != 'POST') {
 			json_output(400, array('status' => 400, 'message' => 'Bad request.'));
 		} else {
-			$resp = $this->MyModel->maintenance_create_data($data);
-			json_output(200, $resp);
+			$params = json_decode(file_get_contents('php://input'), TRUE);
+			if($params['iid'] == "" || $params['mid'] == "") {
+				json_output(400, array('status' => 400, 'message' => 'IID and/or MID can\'t be empty'));
+			} else {
+				$resp = $this->MyModel->maintenance_create_data($params);
+				json_output(200, $resp);
+			}
 		}
 	}
 }
