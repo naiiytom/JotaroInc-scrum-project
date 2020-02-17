@@ -51,21 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$route['auth/login']['post']           = 'api/auth/login';
-$route['auth/logout']['post']          = 'api/auth/logout';
-$route['book']['get']          	       = 'book';
-$route['book/detail/(:num)']['get']    = 'book/detail/$1';
-$route['book/create']['post']   	   = 'book/create';
-$route['book/update/(:num)']['put']    = 'book/update/$1';
-$route['book/delete/(:num)']['delete'] = 'book/delete/$1';
-
-$route['item']['get'] = 'api/item';
-$route['item/detail/(:num)']['get'] = 'api/item/detail/$1';
-$route['item/create']['post'] = 'api/item/create';
-
-$route['maintenance']['get'] = 'api/maintenance';
-$route['maintenance/detail/(:num)']['get'] = 'api/maintenance/detail/$1';
-$route['maintenance/create']['post'] = 'api/item/create';
+$route['auth/login']['post']           = 'auth/login';
+$route['auth/logout']['post']          = 'auth/logout';
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';

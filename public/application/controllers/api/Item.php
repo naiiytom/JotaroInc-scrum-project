@@ -34,5 +34,21 @@ class Item extends CI_Controller {
             $resp = $this->MyModel->item_detail_data($id);
             json_output(200,$resp);
         }
-    }
+	}
+	
+	public function create()
+	{
+		$method = $_SERVER['REQUEST_METHOD'];
+		if($method != 'POST') {
+			json_output(400, array('status' => 400, 'message' => 'Bad request.'));
+		} else {
+			$params = json_decode(file_get_contents('php://input'), TRUE);
+			if($params['iid'] == "" || $params['name'] == "") {
+				json_output(400, array('status' => 400, 'message' => 'ID and/or Name can\'t be empty'));
+			} else {
+				$resp = $this->MyModel->item_create_data($params);
+				json_output(200, $resp);
+			}
+		}
+	}
 }

@@ -103,11 +103,23 @@ class MyModel extends CI_Model {
     #extra feature for the future
     public function item_all_data()
     {
-        return $this->db->select('id, item_name')->from('items')->get()->result();
+        return $this->db->select('iid, name, rid, sin, brand, model')->from('item')->get()->result();
     }
 
     public function item_detail_data($id)
     {
-        return $this->db->select('id, item_name')->where('id',$id)->from('items')->get()->row();
+        return $this->db->select('iid, name, rid, sin, brand, model')->where('iid',$id)->from('item')->get()->row();
+    }
+
+    public function item_create_data($data)
+    {
+        $this->db->insert('item', $data);
+        return array('status' => 200, 'message' => 'Data has been created.');
+    }
+
+    public function item_update_data($id, $data)
+    {
+        $this->db->where('iid',$id)->update('item',$data);
+        return array('status' => 200, 'message' => 'Data has been update.');
     }
 }
