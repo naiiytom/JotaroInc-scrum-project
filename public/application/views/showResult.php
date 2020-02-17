@@ -20,14 +20,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-3">
                 <div class="list-group">
-                    <a class="list-group-item" href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม</a>
+                    <a class="list-group-item" href="<?php echo base_url();?>maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม</a>
                     
                 </div>
             </div>
             <div class="col-9">
                 <div class="section-intro">
                     <h4>แสดงรายการค้นหา</h4>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/maintenanceForm" >เลือกรายการ</a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url();?>maintenanceForm" >เลือกรายการ</a>
                 </div>
             </div>
         </div>

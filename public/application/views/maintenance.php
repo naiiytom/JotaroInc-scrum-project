@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <label for="inputSearch" class="sr-only">ค้นหา</label>
                             <input type="text" class="form-control" id="inputSearch" placeholder="ค้นหา">
                             </div>
-                            <a href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/showresult" type="button" class="btn btn-primary"> 
+                            <a href="<?php echo base_url();?>showresult" type="button" class="btn btn-primary"> 
                                 <i class="fa fa-search"  aria-hidden="true"></i>
                             </a>
                         </form>

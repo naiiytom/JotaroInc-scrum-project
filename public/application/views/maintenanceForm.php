@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-3">
                 <div class="list-group">
-                    <a class="list-group-item" href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม</a>
+                    <a class="list-group-item" href="<?php echo base_url();?>maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม</a>
                     
                 </div>
             </div>
@@ -42,8 +42,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div>
                         <br>
-                        <a type="button" class="btn btn-success" href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/sweetalert" >แจ้งซ่อม</a>
-                        <a type="button" class="btn btn-danger" href="<?php echo base_url();?>JotaroInc-scrum-project/public/index.php/showresult" >ยกเลิก</a>
+                        <a type="button" class="btn btn-success" href="<?php echo base_url();?>sweetalert" >แจ้งซ่อม</a>
+                        <a type="button" class="btn btn-danger" href="<?php echo base_url();?>showresult" >ยกเลิก</a>
                         </div>
                     </div>
                 </div>
