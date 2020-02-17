@@ -20,14 +20,8 @@ class Item extends CI_Controller {
 		if($method != 'GET'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
-			if($check_auth_client == true){
-		        	$response = $this->MyModel->auth();
-		        	if($response['status'] == 200){
-		        		$resp = $this->MyModel->item_all_data();
-	    				json_output($response['status'],$resp);
-		        	}
-			}
+			$resp = $this->MyModel->item_all_data();
+			json_output(200, $resp);
 		}
     }
 
