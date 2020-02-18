@@ -2,6 +2,7 @@
 <?php require("../connectDB/updateStatus.php"); ?>
 <?php require("../connectDB/selectTBMaintenance.php"); ?>
 <?php
+	$DId = 0;
 	if($_POST["InputDeviceID"]!= null){
 		$DId = $_POST["InputDeviceID"];
 		$Descript = $_POST["textInput"];
@@ -62,6 +63,8 @@
         echo "</script>";
 	// if everything is ok, try to upload file
 	} else {
+		//if($_FILES['fileToUpload']['name'] != ""){
+			//copy($_FILES['fileToUpload']['tmp_name'],$target_file);
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			//ส่วนบอกว่า upload สำเร็จ
 			$MId = 1;
@@ -71,7 +74,7 @@
 				$MId = $MId + 1;
 			}
 			$MDate = date('d-m-y h:i:s');
-			$status = "Wait for reparation";
+			$status = "Waiting for repairtion";
 			insertTBMaintenance($MId, $DId, $Descript, $MDate, $_FILES["fileToUpload"]["name"], "1022262628", "6030217093");
 			updateStatus($DId, $status);
 			//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
@@ -80,7 +83,20 @@
             echo "window.location = '../../devicelist.php';";
             echo "</script>";
 		} else {
-			echo "Sorry, there was an error uploading your file.";
+			//echo "Sorry, there was an error uploading your file.";
+			$MId = 1;
+			$stmt = selectTBMaintenance();
+			while ($row = $stmt->fetch()) {
+				$MId = $row ["MId"];
+				$MId = $MId + 1;
+			}
+			$MDate = date('d-m-y h:i:s');
+			$status = "Waiting for repairtion";
+			insertTBMaintenance($MId, $DId, $Descript, $MDate, $_FILES["fileToUpload"]["name"], "1022262628", "6030217093");
+			echo "<script type='text/javascript'>";
+            echo "alert('Sorry, there was an error uploading your file.');";
+            echo "window.location = '../../devicelist.php';";
+            echo "</script>";
 		}
 	}
 ?>
