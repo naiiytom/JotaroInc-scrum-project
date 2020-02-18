@@ -6,6 +6,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="utf-8">
     <title>Maintenance Form</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+		function readFile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+	</script>
 </head>
 
 <body>
@@ -22,14 +36,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-3">
                 <div class="list-group">
-                    <a class="list-group-item" href="<?php echo base_url();?>maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม</a>
+                    <a class="list-group-item" href="<?php echo base_url();?>maintenance"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; แจ้งซ่อม  "</a>
                     
                 </div>
             </div>
             <div class="col-9">
                 <div class="section-intro">
 
-                    <div class="form-group">
+                    <form class="form-group" action="<?php echo base_url();?>sweetalert" method="POST">
                         <br>
                         <div class="form-group">
                             <label for="exampleInputPassword1">อาการ</label>
@@ -37,15 +51,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <label for="exampleInputPassword1">อัพโหลดรูปภาพ</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="Img" id="validatedCustomFile" required accept="image/*">
-                            <label class="custom-file-label" for="validatedCustomFile">เลือกรูปภาพ...</label>
+							<input type='file' name="Img" id="validatedCustomFile" onchange="readFile(this);" />
+                            <!-- <input type="file" class="custom-file-input" name="Img" id="validatedCustomFile" required accept="image/*">
+                            <label class="custom-file-label" for="validatedCustomFile">เลือกรูปภาพ...</label> -->
                         </div>
                         <div>
                         <br>
-                        <a type="button" class="btn btn-success" href="<?php echo base_url();?>sweetalert" >แจ้งซ่อม</a>
-                        <a type="button" class="btn btn-danger" href="<?php echo base_url();?>showresult" >ยกเลิก</a>
+						<input type="submit" name="Submit" id="btn_submit" class="btn btn-success" value="แจ้งซ่อม">
+                        <!-- <a type="button" class="btn btn-success" href="<?php echo base_url();?>sweetalert" >แจ้งซ่อม</a> -->
+                        <a type="button" class="btn btn-danger" id="btn_cancle" href="<?php echo base_url();?>showresult" >ยกเลิก</a>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
