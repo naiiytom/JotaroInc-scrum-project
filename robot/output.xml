@@ -1,49 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20200216 19:09:28.005" rpa="false">
-<suite id="s1" name="Test" source="D:\robot_test\test.robot">
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20200301 15:46:51.221" rpa="false">
+<suite id="s1" name="Test" source="D:\JotaroInc-scrum-project\robot\test.robot">
 <test id="s1-t1" name="Open Browser">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/</arg>
+<arg>http://localhost/</arg>
 <arg>Firefox</arg>
 </arguments>
-<msg timestamp="20200216 19:09:28.172" level="INFO">Opening browser 'Firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/'.</msg>
-<msg timestamp="20200216 19:09:28.173" level="INFO">Firefox driver log is always forced to to: D:\robot_test\geckodriver-3.log</msg>
-<status status="PASS" starttime="20200216 19:09:28.172" endtime="20200216 19:09:33.455"></status>
+<msg timestamp="20200301 15:46:51.457" level="INFO">Opening browser 'Firefox' to base url 'http://localhost/'.</msg>
+<msg timestamp="20200301 15:46:51.458" level="INFO">Firefox driver log is always forced to to: D:\JotaroInc-scrum-project\robot\geckodriver-3.log</msg>
+<status status="PASS" starttime="20200301 15:46:51.456" endtime="20200301 15:46:57.837"></status>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
-<arg>Jotaro Inc.</arg>
+<arg>Lazybear Backends</arg>
 </arguments>
-<msg timestamp="20200216 19:09:33.466" level="INFO">Page title is 'Jotaro Inc.'.</msg>
-<status status="PASS" starttime="20200216 19:09:33.456" endtime="20200216 19:09:33.467"></status>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200301 15:46:57.903" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200301 15:46:57.844" endtime="20200301 15:46:57.903"></status>
 </kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<doc>Verifies that current page contains ``text``.</doc>
-<arguments>
-<arg>Welcome to CodeIgniter!</arg>
-</arguments>
-<msg timestamp="20200216 19:09:33.479" level="INFO">Current page contains text 'Welcome to CodeIgniter!'.</msg>
-<status status="PASS" starttime="20200216 19:09:33.467" endtime="20200216 19:09:33.479"></status>
+<msg timestamp="20200301 15:46:57.906" level="FAIL">Title should have been 'Lazybear Backends' but was ''.</msg>
+<status status="FAIL" starttime="20200301 15:46:57.838" endtime="20200301 15:46:57.906"></status>
 </kw>
-<status status="PASS" starttime="20200216 19:09:28.172" endtime="20200216 19:09:33.480" critical="yes"></status>
+<status status="FAIL" starttime="20200301 15:46:51.456" endtime="20200301 15:46:57.907" critical="yes">Title should have been 'Lazybear Backends' but was ''.</status>
 </test>
-<status status="PASS" starttime="20200216 19:09:28.006" endtime="20200216 19:09:33.481"></status>
+<test id="s1-t2" name="Fail login">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost/login</arg>
+</arguments>
+<msg timestamp="20200301 15:46:57.911" level="INFO">Opening url 'http://localhost/login'</msg>
+<status status="PASS" starttime="20200301 15:46:57.910" endtime="20200301 15:47:04.145"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>usernameInput</arg>
+<arg>admin</arg>
+</arguments>
+<msg timestamp="20200301 15:47:04.146" level="INFO">Typing text 'admin' into text field 'usernameInput'.</msg>
+<status status="PASS" starttime="20200301 15:47:04.146" endtime="20200301 15:47:04.222"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>passwordInput</arg>
+<arg>123456</arg>
+</arguments>
+<msg timestamp="20200301 15:47:04.223" level="INFO">Typing text '123456' into text field 'passwordInput'.</msg>
+<status status="PASS" starttime="20200301 15:47:04.222" endtime="20200301 15:47:04.256"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>loginButton</arg>
+</arguments>
+<msg timestamp="20200301 15:47:04.256" level="INFO">Clicking button 'loginButton'.</msg>
+<status status="PASS" starttime="20200301 15:47:04.256" endtime="20200301 15:47:04.913"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=filform.png</arg>
+</arguments>
+<msg timestamp="20200301 15:47:05.027" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filform.png"&gt;&lt;img src="filform.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200301 15:47:04.914" endtime="20200301 15:47:05.028"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Login failed! You have been enter incorrect Username or Password.</arg>
+</arguments>
+<status status="PASS" starttime="20200301 15:47:05.028" endtime="20200301 15:47:05.246"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>filename=filform_failed.png</arg>
+</arguments>
+<msg timestamp="20200301 15:47:05.357" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="filform_failed.png"&gt;&lt;img src="filform_failed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200301 15:47:05.247" endtime="20200301 15:47:05.357"></status>
+</kw>
+<status status="PASS" starttime="20200301 15:46:57.910" endtime="20200301 15:47:05.358" critical="yes"></status>
+</test>
+<status status="FAIL" starttime="20200301 15:46:51.222" endtime="20200301 15:47:05.360"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="1" fail="1">Critical Tests</stat>
+<stat pass="1" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Test">Test</stat>
+<stat pass="1" fail="1" id="s1" name="Test">Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200216 19:09:28.001" level="WARN">Error in file 'D:\robot_test\test.robot': Section name 'Testcases' is deprecated. Use 'Test Cases' instead.</msg>
+<msg timestamp="20200301 15:46:51.212" level="WARN">Error in file 'D:\JotaroInc-scrum-project\robot\test.robot': Section name 'Testcases' is deprecated. Use 'Test Cases' instead.</msg>
 </errors>
 </robot>

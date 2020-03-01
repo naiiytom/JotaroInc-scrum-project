@@ -1,38 +1,50 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->load->library('session');
+        $this->load->helper('url');
+        $this->load->model('Auth_model', 'auth');
+    }
 
-	public function login()
-	{
-		$method = $_SERVER['REQUEST_METHOD'];
-		if($method != 'POST'){
-			json_output(400,array('status' => 400,'message' => 'Bad request.'));
-		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
-			if($check_auth_client == true){
-				$params = json_decode(file_get_contents('php://input'), TRUE);
-		        	$username = $params['username'];
-		        	$password = $params['password'];
-		        
-		        	$response = $this->MyModel->login($username,$password);
-				json_output($response['status'],$response);
-			}
-		}
-	}
+    public function login()
+    {
+        $username = $this->input->post('usernameInput');
+        $password = $this->input->post('passwordInput');
 
-	public function logout()
-	{	
-		$method = $_SERVER['REQUEST_METHOD'];
-		if($method != 'POST'){
-			json_output(400,array('status' => 400,'message' => 'Bad request.'));
-		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
-			if($check_auth_client == true){
-		        	$response = $this->MyModel->logout();
-				json_output($response['status'],$response);
-			}
-		}
-	}
-	
+        if (isset($username) && isset($password)) {
+            $res = $this->auth->getLogin($username, $password, "Webapp");
+            if ($res['status'] == 200) {
+                $this->session->set_userdata(array(
+                    'token' => $res['data']['token'],
+                    'userid' => $res['data']['empID'],
+                    'name' => $res['data']['name'],
+                    'priv' => $res['data']['priv']
+                ));
+
+                redirect('/', 'refresh');
+            } else if ($res['status'] == 500) {
+                $this->session->set_flashdata('server_failed', true);
+            } else {
+                $this->session->set_flashdata('login_failed', true);
+            }
+        }
+
+        redirect('/login', 'refresh');
+    }
+
+    public function logout()
+    {
+        if ($this->session->token) {
+            $this->auth->getLogout($this->session->token, $this->session->userid);
+            $this->session->unset_userdata(array('token', 'userid'));
+        }
+
+        redirect('/login', 'refresh');
+    }
 }
