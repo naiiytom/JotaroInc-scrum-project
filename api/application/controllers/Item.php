@@ -5,7 +5,11 @@ class Item extends CI_Controller {
 
 	public function __construct()
     {
-        parent::__construct();
+		parent::__construct();
+		
+		$this->load->helper('json_output');
+		$this->load->model('Auth_model', 'auth');
+		$this->load->model('Item_model', 'item');
         /*
         	$check_auth_client = $this->MyModel->check_auth_client();
 		if($check_auth_client != true){
@@ -20,7 +24,7 @@ class Item extends CI_Controller {
 		if($method != 'GET'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
-			$resp = $this->MyModel->item_all_data();
+			$resp = $this->item->item_all_data();
 			json_output(200, $resp);
 		}
     }
@@ -31,7 +35,7 @@ class Item extends CI_Controller {
         if($method != 'GET') {
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
         } else {
-            $resp = $this->MyModel->item_detail_data($id);
+            $resp = $this->item->item_detail_data($id);
             json_output(200,$resp);
         }
 	}
@@ -46,7 +50,7 @@ class Item extends CI_Controller {
 			if($params['iid'] == "" || $params['name'] == "") {
 				json_output(400, array('status' => 400, 'message' => 'ID and/or Name can\'t be empty'));
 			} else {
-				$resp = $this->MyModel->item_create_data($params);
+				$resp = $this->item->item_create_data($params);
 				json_output(200, $resp);
 			}
 		}

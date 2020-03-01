@@ -9,13 +9,13 @@ class Auth extends CI_Controller {
 		if($method != 'POST'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
+			$check_auth_client = $this->Auth_Model->check_auth_client();
 			if($check_auth_client == true){
 				$params = json_decode(file_get_contents('php://input'), TRUE);
 		        	$username = $params['username'];
 		        	$password = $params['password'];
 		        
-		        	$response = $this->MyModel->login($username,$password);
+		        	$response = $this->Auth_Model->login($username,$password);
 				json_output($response['status'],$response);
 			}
 		}
@@ -27,9 +27,9 @@ class Auth extends CI_Controller {
 		if($method != 'POST'){
 			json_output(400,array('status' => 400,'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->MyModel->check_auth_client();
+			$check_auth_client = $this->Auth_Model->check_auth_client();
 			if($check_auth_client == true){
-		        	$response = $this->MyModel->logout();
+		        	$response = $this->Auth_Model->logout();
 				json_output($response['status'],$response);
 			}
 		}
