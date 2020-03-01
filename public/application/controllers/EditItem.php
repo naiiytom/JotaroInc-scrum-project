@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller
+class EditItem extends CI_Controller
 {
     public function __construct()
     {
@@ -16,10 +16,10 @@ class Welcome extends CI_Controller
         #if ($this->session->token) {
             $this->load->view('header', array('title' => 'Welcome to Backends'));
             $this->load->view('menubar');
-            $this->load->view('home');
+            $this->load->view('edititem');
             $this->load->view('footer');
         #} else {
-        #    redirect('index.php/login', 'refresh');
+        #    redirect('/login', 'refresh');
         #}
     }
 }

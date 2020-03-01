@@ -12,38 +12,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ul>
     <div class='header'>
         <!--<h4>LazyBear</h4>-->
-        <img src="<?=base_url()?>static/img/Logo-White.png" style="margin-left: 10px;" width="150px" draggable="false">
+        <img src="<?=base_url()?>static/img/CSLOGO5.png" style="margin-left: 10px;" width="150px" draggable="false">
     </div>
 
     <ul>
         <li>
             <div class='btn-ico'><i class='fas fa-home'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>">หน้าหลัก</a>
+            <a class='link link-ico-left' href="<?php echo base_url(); ?>">Home</a>
         </li>
         <li>
             <div class='btn-ico'><i class='fas fa-box'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>stock">คลังสินค้า</a>
+            <a class='link link-ico-left' href="<?php echo base_url(); ?>index.php/itemlist">List</a>
         </li>
-        <li>
-            <div class='btn-ico'><i class='fas fa-cart-arrow-down'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>order">คำสั่งซื้อ</a>
-        </li>
-        <li>
-            <div class='btn-ico'><i class='fas fa-ad'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>promotion">โปรโมชั่น</a>
-        </li>
-        <li>
-            <div class='btn-ico'><i class='fas fa-dolly'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>shipping">ช่องทางการจัดส่ง</a>
-        </li>
-        <li>
-            <div class='btn-ico'><i class='fas fa-address-book'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>customer">ลูกค้า</a>
-        </li>
-        <li>
-            <div class='btn-ico'><i class='fas fa-user-injured'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>seller">พนักงาน</a>
-        </li>
+        
     </ul>
 
     <ul class='menu-bot'>

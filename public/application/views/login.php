@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<div class='container-fluid'>
 		<div class='loginContainer'>
 			<div class='Logo'>
-				<img class='logo' src="<?=base_url()?>static/img/logo.png" draggable=false />
+				<img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false />
 			</div>
 			<form method="POST" action="./auth/login">
 				<div class='form-group'>
@@ -24,7 +24,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</div>
 				<button id="loginButton" type='submit' class='btn btn-primary'>Login</button>
 				<a class='btn btn-link' href='./'>Back to Home</a>
+				
 			</form>
+			<span>don't have an account?	<a class="btn btn-link" href='<?php echo base_url(); ?>index.php/signup'>Sign Up</a> </span>
+				
 		</div>
 	</div>
 	<div class='area'>
