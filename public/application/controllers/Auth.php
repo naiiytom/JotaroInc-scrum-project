@@ -35,7 +35,7 @@ class Auth extends CI_Controller
             }
         }
 
-        redirect('/login', 'refresh');
+        redirect('index.php/login', 'refresh');
     }
 
     public function logout()
@@ -45,6 +45,6 @@ class Auth extends CI_Controller
             $this->session->unset_userdata(array('token', 'userid'));
         }
 
-        redirect('/login', 'refresh');
+        redirect('index.php/login', 'refresh');
     }
 }
