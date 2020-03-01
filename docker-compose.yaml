@@ -16,15 +16,19 @@ services:
 
   db:
     container_name: stack_mariadb
-    image: mariadb
+    image: mariadb:10.1
+    restart: always
     environment: 
-      MYSQL_ROOT_HOST: localhost
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_DATABASE: dump
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=p@ssw0rd123456
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd123456
+      - "MYSQL_ROOT_HOST=%"
+      - MYSQL_DATABASE=dump
+
     ports: 
       - 3306:3306
     volumes:
-      - "db-data:/var/lib/mysql/data"
+      - ./db/schema:/docker-entrypoint-initdb.d
 
   nginx:
     container_name: stack_nginx
@@ -38,6 +42,3 @@ services:
     ports: 
       - 80:80
       - 81:81
-
-volumes: 
-  db-data: {}

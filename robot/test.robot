@@ -1,10 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-*** Testcases ***
+*** Test Cases ***
 Open Browser
     Open Browser    http://localhost/    Firefox
-    Title Should Be    Lazybear Backends
 
 Fail login
     Go To    http://localhost/login
