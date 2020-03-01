@@ -1,6 +1,7 @@
 public/node_modules
 /public/hot
 /public/storage
+/public/ci_sessions
 /storage/*.key
 /vendor
 .env

@@ -1,38 +1,45 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
+class Auth extends CI_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->helper('json_output');
+		$this->load->model('Auth_model', 'auth');
+	}
 
 	public function login()
 	{
 		$method = $_SERVER['REQUEST_METHOD'];
-		if($method != 'POST'){
-			json_output(400,array('status' => 400,'message' => 'Bad request.'));
+		if ($method != 'POST') {
+			json_output(400, array('status' => 400, 'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->Auth_Model->check_auth_client();
-			if($check_auth_client == true){
+			$check_auth_client = $this->Auth_model->check_auth_client();
+			if ($check_auth_client == true) {
 				$params = json_decode(file_get_contents('php://input'), TRUE);
-		        	$username = $params['username'];
-		        	$password = $params['password'];
-		        
-		        	$response = $this->Auth_Model->login($username,$password);
-				json_output($response['status'],$response);
+				$username = $params['username'];
+				$password = $params['password'];
+
+				$response = $this->Auth_model->login($username, $password);
+				json_output($response['status'], $response);
 			}
 		}
 	}
 
 	public function logout()
-	{	
+	{
 		$method = $_SERVER['REQUEST_METHOD'];
-		if($method != 'POST'){
-			json_output(400,array('status' => 400,'message' => 'Bad request.'));
+		if ($method != 'POST') {
+			json_output(400, array('status' => 400, 'message' => 'Bad request.'));
 		} else {
-			$check_auth_client = $this->Auth_Model->check_auth_client();
-			if($check_auth_client == true){
-		        	$response = $this->Auth_Model->logout();
-				json_output($response['status'],$response);
+			$check_auth_client = $this->Auth_model->check_auth_client();
+			if ($check_auth_client == true) {
+				$response = $this->Auth_model->logout();
+				json_output($response['status'], $response);
 			}
 		}
 	}
-	
 }

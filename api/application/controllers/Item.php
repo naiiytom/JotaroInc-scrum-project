@@ -10,12 +10,7 @@ class Item extends CI_Controller {
 		$this->load->helper('json_output');
 		$this->load->model('Auth_model', 'auth');
 		$this->load->model('Item_model', 'item');
-        /*
-        	$check_auth_client = $this->MyModel->check_auth_client();
-		if($check_auth_client != true){
-			die($this->output->get_output());
-		}
-		*/
+
     }
 
 	public function index()
