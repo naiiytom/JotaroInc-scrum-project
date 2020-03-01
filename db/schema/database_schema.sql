@@ -12,9 +12,9 @@ CREATE TABLE `tbaccess` (
 
 INSERT INTO `tbaccess` (`AccessID`, `AccessName`, `AccessDetial`) VALUES
 ('0', 'admin', 'Access all'),
-('1', 'Staff', 'Add,Edit.Delete'),
-('2', 'Teacher', 'Borrow,Maintenance'),
-('3', 'Student', 'Borrow,Maintenance');
+('1', 'Staff', 'Add, Edit, Delete'),
+('2', 'Teacher', 'Borrow, Maintenance'),
+('3', 'Student', 'Borrow, Maintenance');
 
 -- --------------------------------------------------------
 
@@ -44,6 +44,7 @@ INSERT INTO `tbaccount` (`AccountID`, `AUserName`, `APassWord`, `AccessID`) VALU
 
 CREATE TABLE `tbborrow` (
   `BOID` varchar(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ItemSN` varchar(50) CHARACTER SET tis620 NOT NULL,
   `BorrowDate` date DEFAULT NULL,
   `ReturnScheduled` date DEFAULT NULL,
   `ReturnDate` date DEFAULT NULL,
@@ -131,7 +132,7 @@ CREATE TABLE `tbitem` (
 --
 
 INSERT INTO `tbitem` (`ItemID`, `itemName`, `ItemModel`, `ItemSN`, `ItemBrand`, `ItemImage`, `ItemYear`, `ItemDescript`, `LocalID`, `CatID`, `StatusID`) VALUES
-('5602040000007', 'เครื่องทำลายเอกสาร', '3104', '5602040000007-1', 'IDEAL', 'https://www.janivisoffice.co.th/wp-content/uploads', 2013, 'ทำลายเอกสารได้ครั้งละ 30 ? 32 แผ่น', '01', '13', '0'),
+('5602040000007', 'เครื่องทำลายเอกสาร', '3104', '5602040000007-1', 'IDEAL', 'https://www.janivisoffice.co.th/wp-content/uploads', 2013, 'ทำลายเอกสารได้ครั้งละ 30 แผ่นต่อนาที', '01', '13', '0'),
 ('5602130000087', 'คอมพิวเตอร์ประมวลผลระดับสูง', '7010DT', '5602130000087-1', 'DELL', 'https://lh3.googleusercontent.com/proxy/UkXH3eCTZY', 2013, 'Dell OptiPlex 7010 Desktop Computer - Intel Core i7 i7-3770 3.40 GHz - Mini-tower 462-5874 16', '01', '13', '0'),
 ('5602130000087', 'คอมพิวเตอร์ประมวลผลระดับสูง', '7010DT', '5602130000087-10', 'DELL', 'https://lh3.googleusercontent.com/proxy/UkXH3eCTZY', 2013, 'Dell OptiPlex 7010 Desktop Computer - Intel Core i7 i7-3770 3.40 GHz - Mini-tower 462-5874 16', '01', '13', '0'),
 ('5602130000087', 'คอมพิวเตอร์ประมวลผลระดับสูง', '7010DT', '5602130000087-11', 'DELL', 'https://lh3.googleusercontent.com/proxy/UkXH3eCTZY', 2013, 'Dell OptiPlex 7010 Desktop Computer - Intel Core i7 i7-3770 3.40 GHz - Mini-tower 462-5874 16', '01', '13', '0'),
@@ -193,6 +194,7 @@ INSERT INTO `tblocation` (`LocalID`, `LocalName`) VALUES
 
 CREATE TABLE `tbmaintenance` (
   `MTID` varchar(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ItemSN` varchar(50) CHARACTER SET tis620 NOT NULL,
   `InformDate` date DEFAULT NULL,
   `MtDetail` varchar(100) CHARACTER SET tis620 DEFAULT NULL,
   `MtImage` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -296,7 +298,8 @@ ALTER TABLE `tbaccount`
 --
 ALTER TABLE `tbborrow`
   ADD PRIMARY KEY (`BOID`),
-  ADD KEY `FK_TBBorrow` (`AccountID`);
+  ADD KEY `FK_TBBorrowTBAccount` (`AccountID`),
+  ADD KEY `FK_TBBorrowTBItem` (`itemSN`);
 
 --
 -- Indexes for table `tbcategory`
@@ -331,7 +334,8 @@ ALTER TABLE `tblocation`
 ALTER TABLE `tbmaintenance`
   ADD PRIMARY KEY (`MTID`),
   ADD KEY `FK_TBMaintenanceTBAccount` (`AccountID`),
-  ADD KEY `FK_TBMaintenanceTBHastiness` (`HID`);
+  ADD KEY `FK_TBMaintenanceTBHastiness` (`HID`),
+  ADD KEY `FK_TBMaintenanceTBItem` (`itemSN`);
 
 --
 -- Indexes for table `tbstaff`
@@ -384,7 +388,8 @@ ALTER TABLE `tbaccount`
 -- Constraints for table `tbborrow`
 --
 ALTER TABLE `tbborrow`
-  ADD CONSTRAINT `FK_TBBorrow` FOREIGN KEY (`AccountID`) REFERENCES `tbaccount` (`AccountID`);
+  ADD CONSTRAINT `FK_TBBorrowTBAccount` FOREIGN KEY (`AccountID`) REFERENCES `tbaccount` (`AccountID`),
+  ADD CONSTRAINT `FK_TBBorrowTBItem` FOREIGN KEY (`itemSN`) REFERENCES `tbitem` (`itemSN`);
 
 --
 -- Constraints for table `tbitem`
@@ -399,7 +404,8 @@ ALTER TABLE `tbitem`
 --
 ALTER TABLE `tbmaintenance`
   ADD CONSTRAINT `FK_TBMaintenanceTBAccount` FOREIGN KEY (`AccountID`) REFERENCES `tbaccount` (`AccountID`),
-  ADD CONSTRAINT `FK_TBMaintenanceTBHastiness` FOREIGN KEY (`HID`) REFERENCES `tbhastiness` (`HID`);
+  ADD CONSTRAINT `FK_TBMaintenanceTBHastiness` FOREIGN KEY (`HID`) REFERENCES `tbhastiness` (`HID`),
+  ADD CONSTRAINT `FK_TBMaintenanceTBItem` FOREIGN KEY (`itemSN`) REFERENCES `tbitem` (`itemSN`);
 
 --
 -- Constraints for table `tbstaff`
