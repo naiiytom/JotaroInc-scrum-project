@@ -19,7 +19,13 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('showResult');
+	{	
+		$method = $_SERVER['REQUEST_METHOD'];
+		if($method != 'GET') {
+			json_output(400, array('status' => 400, 'message' => 'Bad request'));
+		} else {
+			json_output(200 ,array('status' => 200, 'message' => 'Welcome to Jotaro Inc API Page'));
+		}
+		//$this->load->view('showResult');
 	}
 }
