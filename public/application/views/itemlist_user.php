@@ -44,10 +44,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							
                         </td>
                         <td class="text-primary">
-							<a type="button" class="btn btn-danger" id="btn_delete" name="btn_delete" href="<?php echo base_url(); ?>index.php/maintenance  ">แจ้งซ่อม</a>
+							<a type="button" class="btn btn-danger" id="btn_maintance" name="btn_maintance" href="<?php echo base_url(); ?>index.php/maintenance?  ">แจ้งซ่อม</a>
                         </td>
                         <td class="text-primary">
-							<a type="button" class="btn btn-success" id="btn_delete" name="btn_delete" href="# ">เพิ่มเติม</a>
+							<a type="button" class="btn btn-success" id="btn_detail" name="btn_detail" href="# ">เพิ่มเติม</a>
 						</td>
                     </tr>
                 </tbody>

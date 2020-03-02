@@ -47,7 +47,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							<a type="button" class="btn btn-danger" id="btn_delete" name="btn_delete" href="# ">ลบ</a>
                         </td>
                         <td class="text-primary">
-							<a type="button" class="btn btn-success" id="btn_delete" name="btn_delete" href="# ">เพิ่มเติม</a>
+							<a type="button" class="btn btn-success" id="btn_detail" name="btn_detail" href="# ">เพิ่มเติม</a>
 						</td>
                     </tr>
                 </tbody>
