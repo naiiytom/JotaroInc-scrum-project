@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -19,12 +20,12 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{	
+	{
 		$method = $_SERVER['REQUEST_METHOD'];
-		if($method != 'GET') {
+		if ($method != 'GET') {
 			json_output(400, array('status' => 400, 'message' => 'Bad request'));
 		} else {
-			json_output(200 ,array('status' => 200, 'message' => 'Welcome to Jotaro Inc API Page'));
+			json_output(200, array('status' => 200, 'message' => 'Welcome to Jotaro Inc API Page'));
 		}
 		//$this->load->view('showResult');
 	}
