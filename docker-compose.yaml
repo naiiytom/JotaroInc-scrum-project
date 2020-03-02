@@ -9,8 +9,7 @@ services:
       dockerfile: dev.Dockerfile
     restart: always
     volumes: 
-      - ./public/:/var/www/html/public
-      - ./api/:/var/www/html/api
+      - ./public:/var/www/html
     expose:
       - "9000"
 
@@ -41,4 +40,4 @@ services:
       - php
     ports: 
       - 80:80
-      - 81:81
+    
