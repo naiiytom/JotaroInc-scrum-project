@@ -21,7 +21,7 @@ class ItemList extends CI_Controller
         #} else if ($this->session->token) {
             $this->load->view('header', array('title' => 'Welcome to Backends'));
             $this->load->view('menubar');
-            $this->load->view('itemlist_user');
+            $this->load->view('itemlist_admin');
             $this->load->view('footer');
         #} else {
         #    redirect('/login', 'refresh');

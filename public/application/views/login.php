@@ -5,17 +5,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<div class='container-fluid'>
 		<div class='loginContainer'>
 			<div class='Logo'>
-				<img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false />
+				<!-- <img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false /> -->
 			</div>
-			<form method="POST" action="./auth/login">
+			<form method="POST" action="<?=base_url()?>index.php/auth">
 				<div class='form-group'>
 					<label for='usernameInput'>Username</label>
-					<input type='text' class='form-control' name='usernameInput' id='usernameInput'
+					<input type='text' class='form-control' name='username' id='username'
 						placeholder='Enter your cool username' required />
 				</div>
 				<div class='form-group'>
 					<label for='passwordInput'>Password</label>
-					<input type='password' class='form-control' name='passwordInput' id='passwordInput'
+					<input type='password' class='form-control' name='password' id='password'
 						placeholder='Your lovely password here' required />
 				</div>
 				<div class='form-group form-check'>
