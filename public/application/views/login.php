@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<div class='container-fluid'>
 		<div class='loginContainer'>
 			<div class='Logo'>
-				<!-- <img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false /> -->
+				<img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false />
 			</div>
 			<form method="POST" action="<?=base_url()?>index.php/auth">
 				<div class='form-group'>

@@ -14,10 +14,7 @@ class SignUp extends CI_Controller
     public function index()
     {
        
-
         $this->load->view('header', array('title' => 'Login Page'));
-        
-        
         $this->load->view('signup');
         $this->load->view('footer');
     }
