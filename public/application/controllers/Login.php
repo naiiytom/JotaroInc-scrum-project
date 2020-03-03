@@ -7,17 +7,15 @@ class Login extends CI_Controller
     {
         parent::__construct();
         
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
     }
 
     public function index()
     {
-        if ($this->session->has_userdata('token')) {
-            redirect('/', 'refresh');
-        }
 
         $this->load->view('header', array('title' => 'Login Page'));
+        /*
         if ($this->session->flashdata('login_failed') == true) {
             $this->load->view('error_msg', array(
                 'color' => 'alert-danger',
@@ -30,7 +28,7 @@ class Login extends CI_Controller
                 'title' => 'Login failed!',
                 'message' => 'Internal Server Error'
             ));
-        }
+        }*/
         $this->load->view('login');
         $this->load->view('footer');
     }

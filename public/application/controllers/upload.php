@@ -9,7 +9,7 @@ class Upload extends CI_Controller
         $this->load->model('bell/query');
         $this->load->model('bell/insert');
         $this->load->model('bell/update');
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -17,6 +17,10 @@ class Upload extends CI_Controller
     }
     public function index()
     {
+        session_start();
+        $AccessID = $_SESSION["AccessID"];
+        $username = $_SESSION["username"];
+
         $this->form_validation->set_rules('MtDetail', 'MtDetail', 'trim|required|xss_clean');
         $this->form_validation->set_rules('priority', 'priority', 'trim|required|xss_clean');
         $this->form_validation->set_rules('ItemSN', 'ItemSN', 'trim|required|xss_clean');
@@ -25,7 +29,7 @@ class Upload extends CI_Controller
         $HName = $this->input->post('priority');
         $ItemSN = $this->input->get('ItemSN');
 
-        $username = $this->session->userdata("username");
+        //$username = $this->session->userdata("username");
         //if(null !== $this->session->userdata("token")){
         if($this->query->tokenrecords($username) == TRUE){
 

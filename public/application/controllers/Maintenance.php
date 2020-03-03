@@ -7,7 +7,7 @@ class Maintenance extends CI_Controller
     {
         parent::__construct();
         $this->load->model('bell/query');
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
         $this->load->helper('form');
     }
@@ -15,11 +15,13 @@ class Maintenance extends CI_Controller
     public function index()
     {
         $ItemSN=$this->input->get('ItemSN');
-        
+        session_start();
+        $AccessID = $_SESSION["AccessID"];
+        $username = $_SESSION["username"];
 
         $result['data']=$this->query->itemlistrecordsItemSN($ItemSN);
         
-        $username = $this->session->userdata("username");
+        //$username = $this->session->userdata("username");
         //if(null !== $this->session->userdata("token")){
         if($this->query->tokenrecords($username) == TRUE){
             $this->load->view('header', array('title' => 'Welcome to Backends'));

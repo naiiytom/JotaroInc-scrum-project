@@ -14,13 +14,15 @@ Class Auth extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('bell/query');
         $this->load->model('bell/insert');
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
+        
 
     }
 
     // Show login page
     public function index() {
+        session_start();
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
@@ -39,17 +41,20 @@ Class Auth extends CI_Controller {
             $AccessID = $row->AccessID;
         }
             if ($result == TRUE) {
-
+                
                 if ($username == $AUserName && $password == $APassWord) {
-                    $this->session->set_userdata('AccessID', $AccessID);
-                    $this->session->set_userdata('username', $username);
+                    //$this->session->set_userdata('AccessID', $AccessID);
+                    //$this->session->set_userdata('username', $username);
+                    $_SESSION["AccessID"] = $AccessID;
+                    $_SESSION["username"] = $username;
 
                     $token = openssl_random_pseudo_bytes(32);
                     //Convert the binary data into hexadecimal representation.
                     $random_password_hash = bin2hex($token);
 
                     $this->insert->insertToken($username, $random_password_hash);
-                    $this->session->set_userdata('token', $$random_password_hash);
+                    //$this->session->set_userdata('token', $random_password_hash);
+                    $_SESSION["token"] = $random_password_hash;
 
                     if($AccessID == '0'){
                         header('location: ItemList');
@@ -64,8 +69,7 @@ Class Auth extends CI_Controller {
                         header('location: ItemList');
                     }
                     else{
-                        echo AccessID;
-                        //header('location: login');
+                        header('location: login');
                     }
                 }
                 else if($AUserName == "" && $APassWord == ""){
@@ -75,10 +79,14 @@ Class Auth extends CI_Controller {
                 }
                 else{
                     $this->load->view('header', array('title' => 'Welcome to Backends'));
-                    $this->load->view('login');
+                    $this->load->view('signup');
                     $this->load->view('footer');
                 }
                 
+            } else{
+                $this->load->view('header', array('title' => 'Welcome to Backends'));
+                $this->load->view('login');
+                $this->load->view('footer');
             }
     }  
 }
