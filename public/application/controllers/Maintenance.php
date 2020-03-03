@@ -32,8 +32,4 @@ class Maintenance extends CI_Controller
             redirect('login');
         }
     }
-
-
-
-
 }

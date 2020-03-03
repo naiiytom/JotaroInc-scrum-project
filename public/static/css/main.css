@@ -174,7 +174,7 @@ nav.menubar {
   position: fixed;
   z-index: 9999;
   overflow: hidden;
-  background: #4e4e4e;
+  background: #8a8484;
   color: #fff;
 }
 nav.menubar div.header {
@@ -399,7 +399,7 @@ div.App.home div.header {
   padding-left: 25px;
   padding-right: 25px;
   margin-bottom: -25px;
-  background: #6e6e6e;
+  background: #dcdee2;
   color: #fff;
 }
 div.App.home div.header * {
@@ -416,7 +416,7 @@ div.App.home div.header div.overview {
   padding-right: 5px;
   margin-left: 2em;
   border-radius: 5px;
-  background: #414141;
+  background: #dcdee2;
   color: #fff;
   text-align: center;
   box-shadow: 0 0 30px -15px #000;
@@ -446,7 +446,7 @@ div.App.home div.header div.overview h3 {
     width: calc(50% - 3em);
     margin-left: 2em;
     border-radius: 25px;
-    background: #414141;
+    background: #dcdee2;
   }
 }
 * {
@@ -455,7 +455,7 @@ div.App.home div.header div.overview h3 {
 }
 body,
 div.App {
-  background: #5a5a5a;
+  background: #dcdee2;
 }
 div.App {
   min-height: 100vh;
@@ -528,4 +528,8 @@ div.modal {
 
 div.modal-backdrop {
   z-index: 999998;
+}
+
+.text-primary {
+  color: blue;
 }

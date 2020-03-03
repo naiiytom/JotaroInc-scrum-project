@@ -29,67 +29,46 @@ class Upload extends CI_Controller
         $HName = $this->input->post('priority');
         $ItemSN = $this->input->get('ItemSN');
 
-        //$username = $this->session->userdata("username");
-        //if(null !== $this->session->userdata("token")){
-        if($this->query->tokenrecords($username) == TRUE){
+        $username = $this->session->userdata("username");
+        if (null !== $this->session->userdata("token")) {
+            if ($this->query->tokenrecords($username) == TRUE) {
+                if (empty($_FILES["images"])) {
+                    $MTID = $this->input->get('MTID');
+                    $HID = $this->input->get('HID');
+                    $AccountID = $this->input->get('AccountID');
+                    $InformDate = date("Y-m-d H:i:s");
+                    $data = '';
 
-        if(isset($_FILES["filUpload"]))
-        {
-            foreach($_FILES['filUpload']['tmp_name'] as $key => $val)
-            {   
-                $file_name = $_FILES['filUpload']['name'][$key];
-                $file_size = $_FILES['filUpload']['size'][$key];
-                $file_tmp = $_FILES['filUpload']['tmp_name'][$key];
-                $file_type = $_FILES['filUpload']['type'][$key]; 
-
-                if(in_array($file_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP))){
-                    $errors[] = "This file extension is not allowed. Please upload a GIF or JPEG or PNG file";
-                }
-                if ($file_size > 2000000) {
-                    $errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB";
-                }
-                if (empty($errors)) {
-                    $didUpload = move_uploaded_file($file_tmp, './static/upload/'.$file_name);
-    
-                    if ($didUpload) {
+                    $this->insert->insertrecordsMaintenance($MTID, $ItemSN, $InformDate, $MtDetail, $data, $HID, $AccountID);
+                    $this->update->statusUpdate('3', $ItemSN);
+                    redirect("ItemList");
+                } else {
+                    foreach ($_FILES['images']['tmp_name'] as $key => $val) {
+                        $file_tmp = $_FILES['images']['tmp_name'][$key];
+                        $data = file_get_contents($file_tmp);
+                        $data = base64_encode($data);
                         $HID = '';
                         $MTID = '';
                         $InformDate = date("Y-m-d H:i:s");
-                        
-                        foreach ($this->query->tbmaintencerecords() as $row)
-                        {
-                            $MTID = $row->MTID;
-                            $MTID = (int)$MTID + 1;
-                        }
-
-                        foreach ($this->query->tbhastinessrecords($HName) as $row)
-                        {
-                            $HID = $row->HID;
-                        }
-
-                        foreach ($this->query->accountID($username) as $row)
-                        {
-                            $AccountID = $row->AccountID;
-                        }
-
-                        $this->insert->insertrecordsMaintenance($MTID, $ItemSN, $InformDate, $MtDetail, $file_name, $HID, $AccountID);
-                        $this->update->statusUpdate('3', $ItemSN);
-                        redirect("ItemList");
-
-                    } else {
-                        echo "An error occurred somewhere. Try again or contact the admin";
                     }
-                } else {
-                    foreach ($errors as $error) {
-                        echo $error . "These are the errors" . "\n";
+                    foreach ($this->query->tbmaintencerecords() as $row) {
+                        $MTID = $row->MTID;
+                        $MTID = (int) $MTID + 1;
                     }
+
+                    foreach ($this->query->tbhastinessrecords($HName) as $row) {
+                        $HID = $row->HID;
+                    }
+
+                    foreach ($this->query->accountID($username) as $row) {
+                        $AccountID = $row->AccountID;
+                    }
+
+                    $this->insert->insertrecordsMaintenance($MTID, $ItemSN, $InformDate, $MtDetail, $data, $HID, $AccountID);
+                    $this->update->statusUpdate('3', $ItemSN);
+                    redirect("ItemList");
                 }
-                
             }
         }
-    
-    } else {
-        redirect("login"); 
     }
-}
 }

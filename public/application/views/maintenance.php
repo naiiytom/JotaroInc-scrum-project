@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <span class="tim-note">
             <H7> รูปภาพอุปกรณ์</H7>
           </span>
-          <input type="file" name="filUpload[]" id="filUpload" multiple="multiple">
+          <input type="file" name="images[]" id="images" multiple="multiple" accept="image/*">
         </div>
         <br>
         <div class="col px-md-5 mt-3">
