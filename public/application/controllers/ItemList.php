@@ -14,20 +14,21 @@ class ItemList extends CI_Controller
 
     public function index()
     {
-        
-        if($this->session->userdata("token") != NULL){
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
             $AccessID = $this->session->userdata("AccessID");
             if($AccessID == '0'){
                 $result['data']=$this->query->itemlistrecordsAll();
                 $this->load->view('header', array('title' => 'Welcome to Backends'));
                 $this->load->view('menubar');
-                $this->load->view('itemlist_user',$result);
+                $this->load->view('itemlist_admin',$result);
                 $this->load->view('footer');
             }else{
                 $result['data']=$this->query->itemlistrecordsAll();
                 $this->load->view('header', array('title' => 'Welcome to Backends'));
                 $this->load->view('menubar');
-                $this->load->view('itemlist_admin',$result);
+                $this->load->view('itemlist_user',$result);
                 $this->load->view('footer');
             }
             

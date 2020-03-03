@@ -16,12 +16,14 @@ class Logout extends CI_Controller
     public function index()
     {
         
-        if($this->session->userdata("token") != NULL){
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
 
             $array_items = array('username', 'AccessID', 'token');
-            $this->delete->deleteToken($Username);
+            $this->delete->deleteToken($username);
             $this->session->unset_userdata($array_items);
-                    
+            redirect("login");
         } else {
             redirect("login"); 
         }

@@ -81,4 +81,14 @@ class Query extends CI_Model
         ");
         return $query->result();
     }
+
+    function tokenrecords($Username)
+	{
+        $query=$this->db->query
+        ("
+        SELECT * FROM tbl_token_auth WHERE username = '$Username';
+        ");
+        return $query->result();
+    }
+    
 }

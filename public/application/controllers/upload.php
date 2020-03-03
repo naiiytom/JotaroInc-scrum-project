@@ -25,7 +25,9 @@ class Upload extends CI_Controller
         $HName = $this->input->post('priority');
         $ItemSN = $this->input->get('ItemSN');
 
-        if($this->session->userdata("token") != NULL){
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
 
         if(isset($_FILES["filUpload"]))
         {
@@ -61,8 +63,7 @@ class Upload extends CI_Controller
                             $HID = $row->HID;
                         }
 
-                        $Username = $this->session->userdata("username")
-                        foreach ($this->query->accountID($Username) as $row)
+                        foreach ($this->query->accountID($username) as $row)
                         {
                             $AccountID = $row->AccountID;
                         }
@@ -82,8 +83,9 @@ class Upload extends CI_Controller
                 
             }
         }
-    }
+    
     } else {
         redirect("login"); 
     }
+}
 }

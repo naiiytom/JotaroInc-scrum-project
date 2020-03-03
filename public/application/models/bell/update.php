@@ -1,7 +1,7 @@
 <?php
 class Update extends CI_Model 
 {
-	function itemlistUpdate($ItemID, $ItemName, $ItemModel, $ItemBrand, $ItemDescript, $LocalName, $CatName, $StatusName, $ItemYear, $ItemSN)
+	function itemlistUpdate($ItemID, $ItemName, $ItemModel, $ItemBrand, $ItemDescript, $LocalName, $CatName, $StatusID, $ItemYear, $ItemSN)
 	{
         $Local = '';
         $Status = '';
@@ -12,11 +12,6 @@ class Update extends CI_Model
             $Local = $row->LocalID;
         }
         
-        foreach ($this->statusID($StatusName) as $row)
-        {
-            $Status = $row->StatusID;
-        }
-
         foreach ($this->catID($CatName) as $row)
         {
             $Cat = $row->CatID;
@@ -25,7 +20,7 @@ class Update extends CI_Model
         $query=$this->db->query
         ("
             UPDATE tbitem 
-            SET ItemID = '$ItemID', ItemName = '$ItemName', ItemModel = '$ItemModel', ItemBrand = '$ItemBrand', ItemDescript = '$ItemDescript', LocalID = '$Local', CatID = '$Cat', StatusID = '$Status', ItemYear = '$ItemYear'
+            SET ItemID = '$ItemID', ItemName = '$ItemName', ItemModel = '$ItemModel', ItemBrand = '$ItemBrand', ItemDescript = '$ItemDescript', LocalID = '$Local', CatID = '$Cat', StatusID = '$StatusID', ItemYear = '$ItemYear'
             WHERE tbitem.ItemSN = '$ItemSN';
         ");
     }

@@ -18,7 +18,10 @@ class Maintenance extends CI_Controller
         
 
         $result['data']=$this->query->itemlistrecordsItemSN($ItemSN);
-        if($this->session->userdata("token") != NULL){
+        
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
             $this->load->view('header', array('title' => 'Welcome to Backends'));
             $this->load->view('menubar');
             $this->load->view('maintenance', $result);

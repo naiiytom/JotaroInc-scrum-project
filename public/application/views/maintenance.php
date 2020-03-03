@@ -37,14 +37,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="col px-md-5 mt-3" >  
                 <span class="tim-note"><H7> ความเร่งด่วน</H7></span>
                 <br>
-                    <select name="priority" id="priority">
+                    <select name="priority" id="priority" required>
                         <option value="ด่วน">ด่วน</option>
                         <option value="ไม่ด่วน">ไม่ด่วน</option>
                     </select>
               </div>
               <div class="col px-md-5 mt-3">  
                 <span class="tim-note"><H7> รูปภาพอุปกรณ์</H7> </span>
-                <input type="file" name="filUpload[]" id="filUpload" multiple="multiple">
+                <input type="file" name="filUpload[]" id="filUpload" multiple="multiple" required>
               </div>
               <br>
               <div class="col px-md-5 mt-3">

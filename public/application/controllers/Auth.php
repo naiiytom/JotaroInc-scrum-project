@@ -51,7 +51,6 @@ Class Auth extends CI_Controller {
                     $this->insert->insertToken($username, $random_password_hash);
                     $this->session->set_userdata('token', $$random_password_hash);
 
-
                     if($AccessID == '0'){
                         header('location: ItemList');
                     }
@@ -65,7 +64,8 @@ Class Auth extends CI_Controller {
                         header('location: ItemList');
                     }
                     else{
-                        header('location: login');
+                        echo AccessID;
+                        //header('location: login');
                     }
                 }
                 else if($AUserName == "" && $APassWord == ""){

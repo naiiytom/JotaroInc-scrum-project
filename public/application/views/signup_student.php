@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="form-group row">
 					<label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
 						<div class="col-md-6">
-							<input type="text" id="full_name" class="form-control" name="full-name" required>
+							<input type="text" id="full_name" class="form-control" name="full_name" required>
 						</div>
 				</div>
 				<div class="form-group row">

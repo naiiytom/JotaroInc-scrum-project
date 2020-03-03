@@ -15,20 +15,22 @@ class UpdateItem extends CI_Controller
 
     public function index()
     {
-        $ItemID=$this->input->POST('ItemID');
-        $ItemName=$this->input->POST('ItemName');
-        $ItemModel=$this->input->POST('ItemModel');
-        $ItemBrand=$this->input->POST('ItemBrand');
-        $ItemDescript=$this->input->POST('ItemDescript');
-        $LocalName=$this->input->POST('LocalName');
-        $CatName=$this->input->POST('CatName');
-        $StatusName=$this->input->POST('StatusName');
-        $ItemYear=$this->input->POST('ItemYear');
-        $ItemSN=$this->input->POST('ItemSN');
+        $ItemID = $this->input->POST('ItemID');
+        $ItemName = $this->input->POST('ItemName');
+        $ItemModel = $this->input->POST('ItemModel');
+        $ItemBrand = $this->input->POST('ItemBrand');
+        $ItemDescript = $this->input->POST('ItemDescript');
+        $LocalName = $this->input->POST('LocalName');
+        $CatName = $this->input->POST('CatName');
+        $StatusName = $this->input->POST('StatusName');
+        $ItemYear = $this->input->POST('ItemYear');
+        $ItemSN = $this->input->POST('ItemSN');
 
 	    $this->update->itemlistUpdate($ItemID, $ItemName, $ItemModel, $ItemBrand, $ItemDescript, $LocalName, $CatName, $StatusName, $ItemYear, $ItemSN);
         
-        if($this->session->userdata("token") != NULL){
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
             $result['data']=$this->query->itemlistrecordsAll();
             $this->load->view('header', array('title' => 'Welcome to Backends'));
             $this->load->view('menubar');

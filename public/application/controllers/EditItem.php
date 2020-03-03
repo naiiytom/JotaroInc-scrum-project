@@ -16,7 +16,9 @@ class EditItem extends CI_Controller
 
     public function index()
     {
-        if($this->session->userdata("token") != NULL){
+        $username = $this->session->userdata("username");
+        //if(null !== $this->session->userdata("token")){
+        if($this->query->tokenrecords($username) == TRUE){
             $ItemSN=$this->input->get('ItemSN');
             $result['data']=$this->query->itemlistrecordsItemSN($ItemSN);
             $this->load->view('header', array('title' => 'Welcome to Backends'));

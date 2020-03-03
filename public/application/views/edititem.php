@@ -5,6 +5,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="card-body">
           <form action="UpdateItem" method="POST">
           <?php foreach($data as $row) { ?>
+              
+              <div class="col px-md-5 mt-3">  
+                <span class="tim-note"> <label for="ItemSN"><H7> รหัสประจำเครื่อง</H7></label> </span>
+                <span class="tim-note"> <input type="text" name="ItemSN" class="form-control" id="ItemSN" value="<?php echo $row->ItemSN; ?>"  > </span>
+              </div>
+
               <div class="col px-md-5 mt-3">
                 <span class="tim-note"> <label for="ItemID"><H7> รหัสครุภัณฑ์</H7></label> </span>
                 <span class="tim-note"> <input type="text" name="ItemID" class="form-control" id="ItemID" value="<?php echo $row->ItemID; ?>"  required> </span>
@@ -34,17 +40,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <span class="tim-note"> <input type="text" name="CatName" class="form-control" id="CatName" value="<?php echo $row->CatName; ?>"   required> </span>
               </div>
               <div class="col px-md-5 mt-3">  
-                <span class="tim-note"> <label for="StatusName"><H7> สถานะ</H7></label> </span>
-                <span class="tim-note"> <input type="text" name="StatusName" class="form-control" id="StatusName" value="<?php echo $row->StatusName; ?>"  required> </span>
+              <span class="tim-note"> <label for="StatusName"><H7> สถานะ</H7></label> </span>
+                  <div class="col-md-6">
+                    <select id="StatusName" name="StatusName">
+                      <option value="0">ว่าง</option>
+                      <option value="1">ถูกยืม</option>
+                      <option value="2">ซ่อมแซม</option>
+                      <option value="3.">รอดำเนินการ</option>
+                      <option value="4.">ซ่อมสำเร็จ</option>
+                    </select>
+                  </div>
+                <!--<span class="tim-note"> <label for="StatusName"><H7> สถานะ</H7></label> </span>-->
+                <!--<span class="tim-note"> <input type="text" name="StatusName" class="form-control" id="StatusName" value="<?php echo $row->StatusName; ?>"  required> </span>-->
               </div>
               <div class="col px-md-5 mt-3">  
                 <span class="tim-note"> <label for="ItemYear"><H7> วันที่ซื้อ</H7></label> </span>
                 <span class="tim-note"> <input type="text" name="ItemYear" class="form-control" id="ItemYear" value="<?php echo $row->ItemYear; ?>"  required> </span>
               </div>
-              <div class="col px-md-5 mt-3">  
-                <span class="tim-note"> <label for="ItemSN"><H7> รหัสประจำเครื่อง</H7></label> </span>
-                <span class="tim-note"> <input type="text" name="ItemSN" class="form-control" id="ItemSN" value="<?php echo $row->ItemSN; ?>"   required> </span>
-              </div>
+              
               <br>
               <div class="col px-md-5 mt-3">
 					<input type="submit" name="btn_submit" id="btn_submit" class="btn btn-success" value="ยืนยัน การแก้ไข">
