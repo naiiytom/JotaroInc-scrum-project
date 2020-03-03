@@ -9,12 +9,16 @@ class UpdateItem extends CI_Controller
         $this->load->database();
         $this->load->model('bell/query');
         $this->load->model('bell/update');
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
     }
 
     public function index()
     {
+        session_start();
+        $AccessID = $_SESSION["AccessID"];
+        $username = $_SESSION["username"];
+
         $ItemID = $this->input->POST('ItemID');
         $ItemName = $this->input->POST('ItemName');
         $ItemModel = $this->input->POST('ItemModel');
@@ -28,7 +32,7 @@ class UpdateItem extends CI_Controller
 
 	    $this->update->itemlistUpdate($ItemID, $ItemName, $ItemModel, $ItemBrand, $ItemDescript, $LocalName, $CatName, $StatusName, $ItemYear, $ItemSN);
         
-        $username = $this->session->userdata("username");
+        //$username = $this->session->userdata("username");
         //if(null !== $this->session->userdata("token")){
         if($this->query->tokenrecords($username) == TRUE){
             $result['data']=$this->query->itemlistrecordsAll();

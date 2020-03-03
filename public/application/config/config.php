@@ -25,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url'] = 'http://127.0.0.1/JotaroInc-scrum-project/public/';
 $config['base_url'] = 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/public/';
+//$config['base_url'] = 'http://127.0.0.1/SoftEn2020/Sec01/Jotaro%20Inc/public/';
+//$config['base_url'] = '/';
 
 /*
 |--------------------------------------------------------------------------

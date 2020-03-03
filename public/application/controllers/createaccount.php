@@ -11,7 +11,7 @@ class CreateAccount extends CI_Controller
         $this->load->model('bell/query');
         $this->load->model('bell/insert');
         $this->load->model('bell/update');
-        $this->load->library('session');
+        //$this->load->library('session');
         $this->load->helper('url');
         // Load database
         $this->load->model('');
@@ -19,6 +19,7 @@ class CreateAccount extends CI_Controller
 
     public function index()
     {
+
         $this->form_validation->set_rules('username', 'username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
         $this->form_validation->set_rules('studentID', 'studentID', 'trim|required|xss_clean');

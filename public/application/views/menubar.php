@@ -32,11 +32,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <li>
             <a class='link link-ico-right hide-on-mini' href="<?php echo base_url(); ?>/" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
             <?php
-            $CI;
-            $CI =& get_instance();
-            $CI->load->library('session');
+            //$CI;
+            //$CI =& get_instance();
+            //$CI->load->library('session');
 
-            echo $CI->session->name;
+            //echo $CI->session->name;
             ?></a>
             <div class='btn-ico'>
                 <a class='btn btn-danger logout' href="<?php echo base_url(); ?>index.php/Logout"><span class='fas fa-sign-out-alt'></span></a>

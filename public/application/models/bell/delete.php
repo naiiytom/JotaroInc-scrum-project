@@ -7,6 +7,10 @@ class Delete extends CI_Model
     ("
         DELETE FROM tbitem WHERE ItemSN = '$ItemSN';
     ");
+    $query=$this->db->query
+    ("
+        DELETE FROM tbmaintenance WHERE ItemSN = '$ItemSN';
+    ");
     }
     
     function deleteToken($Username)
