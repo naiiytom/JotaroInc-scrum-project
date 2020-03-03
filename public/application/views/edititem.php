@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <div class='App home'>
   <div class="card-body">
-    <form action="/addItem/add" method="POST">
+    <form action="updateItem" method="POST">
       <?php foreach ($data as $row) { ?>
 
         <div class="col px-md-5 mt-3">
