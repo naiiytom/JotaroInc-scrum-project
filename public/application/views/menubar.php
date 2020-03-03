@@ -28,7 +28,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </ul>
 
     <ul class='menu-bot'>
-        <p class='hide-on-mini'>รุ่นยังไม่แก้บัคซักตัว</p>
         <li>
             <a class='link link-ico-right hide-on-mini' href="<?php echo base_url(); ?>/" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
             <?php
