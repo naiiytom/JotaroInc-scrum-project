@@ -13,13 +13,8 @@ class SignUp_Teacher extends CI_Controller
 
     public function index()
     {
-        
 
         $this->load->view('header', array('title' => 'Login Page'));
-        
-
-        
-        
         #$this->load->view('signup_student');
         $this->load->view('signup_teacher');
         $this->load->view('footer');

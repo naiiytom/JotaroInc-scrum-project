@@ -6,16 +6,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="loginContainer  flex-fill">
 			<div class='Logo'>
 				<img class='logo' src="<?=base_url()?>static/img/CSLOGO3.png" draggable=false />
-			</div>		
-			<div class="text-align center" >
-				<a  class="btn btn-link"  href="<?php echo base_url(); ?>index.php/signup_student">
-					สำหรับนักศึกษา
-				</a>
-				<a  class="btn btn-link" href="<?php echo base_url(); ?>index.php/signup_teacher">
-					สำหรับบุคลากร
-				</a>
 			</div>
-		
+			
+			<div class="row btn-lg">
+				<div class="co-md-4 text-align center " >
+					<a  class="text-align center btn btn-link"  href="<?php echo base_url(); ?>index.php/signup_student">
+						สำหรับนักศึกษา
+					</a>
+					<a  class="text-align center btn btn-link" href="<?php echo base_url(); ?>index.php/signup_teacher">
+						สำหรับบุคลากร
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	

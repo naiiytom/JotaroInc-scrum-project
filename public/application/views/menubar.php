@@ -39,7 +39,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
             echo $CI->session->name;
             ?></a>
             <div class='btn-ico'>
-                <button type='button' class='btn btn-danger logout'><span class='fas fa-sign-out-alt'></span></button>
+                <a class='btn btn-danger logout' href="<?php echo base_url(); ?>index.php/Logout"><span class='fas fa-sign-out-alt'></span></a>
+                <!--<button type='button' class='btn btn-danger logout'><span class='fas fa-sign-out-alt'></span></button>-->
             </div>
         </li>
     </ul>

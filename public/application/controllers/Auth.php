@@ -10,19 +10,13 @@ Class Auth extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-
-        // Load form helper library
         $this->load->helper('form');
-
-        // Load form validation library
         $this->load->library('form_validation');
-
-        // Load session library
+        $this->load->model('bell/query');
+        $this->load->model('bell/insert');
         $this->load->library('session');
         $this->load->helper('url');
 
-        // Load database
-        $this->load->model('');
     }
 
     // Show login page
@@ -30,42 +24,53 @@ Class Auth extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-        //$d//ata = array(
-            //'username' => $this->input->post('username'),
-            //'password' => $this->input->post('password')
-            //);
-            $result = "1";
-            //$result = $this->login_database->login($data);
-            if ($result == "1") {
-                $username = $this->input->post('username');
-                $password = $this->input->post('password');
-                //$result = $this->login_database->read_user_information($username);
-                if ($username == "admin@mail.com" && $password == "admin1234") {
-                    //$session_data = array(
-                    //'username' => $result[0]->user_name,
-                    //);
-                    // Add user data in session
-                    //$this->session->set_userdata('logged_in', $session_data);
-                    $this->load->view('header', array('title' => 'Welcome to Backends'));
-                    $this->load->view('menubar');
-                    $this->load->view('itemlist_admin');
-                    $this->load->view('footer');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $result = $this->query->accountrecords($username, $password);
+
+        $AuserName = '';
+        $APassWord = '';
+
+        foreach ($result as $row)
+        {
+            $AUserName = $row->AUserName;
+            $APassWord = $row->APassWord;
+            $AccessID = $row->AccessID;
+        }
+            if ($result == TRUE) {
+
+                if ($username == $AUserName && $password == $APassWord) {
+                    $this->session->set_userdata('AccessID', $AccessID);
+                    $this->session->set_userdata('username', $username);
+
+                    $token = openssl_random_pseudo_bytes(32);
+                    //Convert the binary data into hexadecimal representation.
+                    $random_password_hash = bin2hex($token);
+
+                    $this->insert->insertToken($username, $random_password_hash);
+                    $this->session->set_userdata('token', $$random_password_hash);
+
+
+                    if($AccessID == '0'){
+                        header('location: ItemList');
+                    }
+                    elseif($AccessID == '1'){
+                        header('location: ItemList');
+                    }
+                    elseif($AccessID == '2'){
+                        header('location: ItemList');
+                    }
+                    elseif($AccessID == '3'){
+                        header('location: ItemList');
+                    }
+                    else{
+                        header('location: login');
+                    }
                 }
-                else if($username == "noaccount" && $password == "noaccount"){
+                else if($AUserName == "" && $APassWord == ""){
                     $this->load->view('header', array('title' => 'Welcome to Backends'));
                     $this->load->view('signup');
-                    $this->load->view('footer');
-                }
-                else if($username == "student"){
-                    $this->load->view('header', array('title' => 'Welcome to Backends'));
-                    $this->load->view('menubar');
-                    $this->load->view('itemlist_user');
-                    $this->load->view('footer');
-                }
-                else if($username == "teacher"){
-                    $this->load->view('header', array('title' => 'Welcome to Backends'));
-                    $this->load->view('menubar');
-                    $this->load->view('itemlist_user');
                     $this->load->view('footer');
                 }
                 else{
