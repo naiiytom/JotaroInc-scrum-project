@@ -14,7 +14,7 @@ Class Auth extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('bell/query');
         $this->load->model('bell/insert');
-        //$this->load->library('session');
+        $this->load->library('session');
         $this->load->helper('url');
         
 

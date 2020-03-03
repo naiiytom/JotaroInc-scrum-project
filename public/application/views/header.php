@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<meta name="theme-color" content="#ffffff">
 
 	<title>
-		Jotaro Inc | 
+		Jotaro Inc |
 		<?php echo isset($title) ? $title : 'Jotaro Inc'; ?>
 	</title>
 

@@ -6,16 +6,16 @@ class Maintenance extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('bell/query');
-        //$this->load->library('session');
+        $this->load->library('session');
         $this->load->helper('url');
         $this->load->helper('form');
+        $this->load->model('bell/query', 'query');
     }
 
     public function index()
     {
         $ItemSN=$this->input->get('ItemSN');
-        session_start();
+        //session_start();
         $AccessID = $_SESSION["AccessID"];
         $username = $_SESSION["username"];
 

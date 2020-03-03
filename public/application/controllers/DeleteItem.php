@@ -15,7 +15,7 @@ class DeleteItem extends CI_Controller
 
     public function index()
     {
-        session_start();
+        //session_start();
         $AccessID = $_SESSION["AccessID"];
         $username = $_SESSION["username"];
 

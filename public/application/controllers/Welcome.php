@@ -7,19 +7,19 @@ class Welcome extends CI_Controller
     {
         parent::__construct();
         
-        //$this->load->library('session');
+        $this->load->library('session');
         $this->load->helper('url');
     }
 
     public function index()
     {
-        #if ($this->session->token) {
-            $this->load->view('header', array('title' => 'Welcome to Backends'));
+        if ($this->session->token) {
+            $this->load->view('header', array('title' => 'Welcome to Jotaro Inc'));
             $this->load->view('menubar');
             $this->load->view('home');
             $this->load->view('footer');
-        #} else {
-        #    redirect('index.php/login', 'refresh');
-        #}
+        } else {
+            redirect('/login', 'refresh');
+        }
     }
 }

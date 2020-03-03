@@ -11,7 +11,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </li>
     </ul>
     <div class='header'>
-        <!--<h4>LazyBear</h4>-->
         <img src="<?=base_url()?>static/img/CSLOGO5.png" style="margin-left: 10px;" width="150px" draggable="false">
     </div>
 
@@ -22,7 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </li>
         <li>
             <div class='btn-ico'><i class='fas fa-box'></i></div>
-            <a class='link link-ico-left' href="<?php echo base_url(); ?>index.php/itemlist">List</a>
+            <a class='link link-ico-left' href="<?php echo base_url(); ?>itemList">List</a>
         </li>
         
     </ul>
@@ -38,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             //echo $CI->session->name;
             ?></a>
             <div class='btn-ico'>
-                <a class='btn btn-danger logout' href="<?php echo base_url(); ?>index.php/Logout"><span class='fas fa-sign-out-alt'></span></a>
+                <a class='btn btn-danger logout' href="<?php echo base_url(); ?>logout"><span class='fas fa-sign-out-alt'></span></a>
                 <!--<button type='button' class='btn btn-danger logout'><span class='fas fa-sign-out-alt'></span></button>-->
             </div>
         </li>

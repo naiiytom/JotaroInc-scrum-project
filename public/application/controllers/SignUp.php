@@ -7,14 +7,14 @@ class SignUp extends CI_Controller
     {
         parent::__construct();
         
-        //$this->load->library('session');
+        $this->load->library('session');
         $this->load->helper('url');
     }
 
     public function index()
     {
        
-        $this->load->view('header', array('title' => 'Login Page'));
+        $this->load->view('header', array('title' => 'Sign Up'));
         $this->load->view('signup');
         $this->load->view('footer');
     }
