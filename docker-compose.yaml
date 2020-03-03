@@ -1,0 +1,43 @@
+version: "2.2"
+
+services:
+
+  php:
+    container_name: stack_php
+    build: 
+      context: docker/php
+      dockerfile: dev.Dockerfile
+    restart: always
+    volumes: 
+      - ./public:/var/www/html
+    expose:
+      - "9000"
+
+  db:
+    container_name: stack_mariadb
+    image: mariadb:10.1
+    restart: always
+    environment: 
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=p@ssw0rd123456
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd123456
+      - "MYSQL_ROOT_HOST=%"
+      - MYSQL_DATABASE=dump
+
+    ports: 
+      - 3306:3306
+    volumes:
+      - ./db/schema:/docker-entrypoint-initdb.d
+
+  nginx:
+    container_name: stack_nginx
+    image: nginx:1.16.1-alpine
+    restart: always
+    volumes: 
+      - ./docker/nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf.ro
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+    volumes_from: 
+      - php
+    ports: 
+      - 80:80
+    
