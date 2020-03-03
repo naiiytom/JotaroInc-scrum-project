@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/';
+//$config['base_url'] = 'http://localhost/';
+$config['base_url'] = 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro Inc/';
 /*
 |--------------------------------------------------------------------------
 | Index File

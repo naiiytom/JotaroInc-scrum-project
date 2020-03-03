@@ -38,4 +38,10 @@ class Insert extends CI_Model
         $query = "INSERT INTO tbl_token_auth (username, password_hash) values ('$username', '$random_password_hash')";
         $this->db->query($query);
     }
+
+    function insertItem($ItemID, $ItemName, $ItemModel, $ItemBrand, $ItemDescript, $LocalID, $CatID, $StatusID, $ItemYear, $ItemSN)
+    {
+        $query = "INSERT INTO tbitem (ItemID, ItemName, ItemModel, ItemBrand, ItemDescript, LocalID, CatID, StatusID, ItemYear, ItemSN) values ('$ItemID', '$ItemName', '$ItemModel', '$ItemBrand', '$ItemDescript', '$LocalID', '$CatID', '$StatusID', '$ItemYear', '$ItemSN')";
+        $this->db->query($query);
+    }
 }

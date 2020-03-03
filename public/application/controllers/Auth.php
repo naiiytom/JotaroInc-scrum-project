@@ -22,7 +22,7 @@ Class Auth extends CI_Controller {
 
     // Show login page
     public function index() {
-        session_start();
+        //session_start();
         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 

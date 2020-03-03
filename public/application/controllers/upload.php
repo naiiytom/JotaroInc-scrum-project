@@ -32,21 +32,16 @@ class Upload extends CI_Controller
         $username = $this->session->userdata("username");
         if (null !== $this->session->userdata("token")) {
             if ($this->query->tokenrecords($username) == TRUE) {
-                if (empty($_FILES["images"])) {
-                    $MTID = $this->input->get('MTID');
-                    $HID = $this->input->get('HID');
-                    $AccountID = $this->input->get('AccountID');
-                    $InformDate = date("Y-m-d H:i:s");
-                    $data = '';
-
-                    $this->insert->insertrecordsMaintenance($MTID, $ItemSN, $InformDate, $MtDetail, $data, $HID, $AccountID);
-                    $this->update->statusUpdate('3', $ItemSN);
-                    redirect("ItemList");
-                } else {
+                if (isset($_FILES["images"])) {
                     foreach ($_FILES['images']['tmp_name'] as $key => $val) {
                         $file_tmp = $_FILES['images']['tmp_name'][$key];
-                        $data = file_get_contents($file_tmp);
-                        $data = base64_encode($data);
+                        if(empty($file_tmp)){
+                            $data = '';
+                        } else {
+                            $data = file_get_contents($file_tmp);
+                            $data = base64_encode($data);
+                        }
+
                         $HID = '';
                         $MTID = '';
                         $InformDate = date("Y-m-d H:i:s");
@@ -67,7 +62,7 @@ class Upload extends CI_Controller
                     $this->insert->insertrecordsMaintenance($MTID, $ItemSN, $InformDate, $MtDetail, $data, $HID, $AccountID);
                     $this->update->statusUpdate('3', $ItemSN);
                     redirect("ItemList");
-                }
+                } 
             }
         }
     }

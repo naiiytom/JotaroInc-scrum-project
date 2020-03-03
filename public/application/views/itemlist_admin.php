@@ -3,6 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <div class='App home'>
     <div class="card-body">
+        <br>
+        <br>
+        <div class="table-responsive">
+            <div>
+                <a type="button" class="btn btn-primary" id="btn_add" name="btn_add" href="<?php echo base_url()?>addItem">เพิ่มรายการครุภัณฑ์</a>
+                <a type="button" style="visibility:hidden" class="btn btn-info" id="btn_viewmaintain" name="btn_viewmaintain" href="# ">ดูรายการแจ้งซ่อม</a>
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead class=" text-primary">

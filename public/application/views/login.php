@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<label class='form-check-label' for='remembermeCheck'>Remember me forever</label>
 				</div>
 				<button id="loginButton" type='submit' class='btn btn-primary'>Login</button>
-				<a class='btn btn-link' href='/'>Back to Home</a>
+				<a class='btn btn-link' href='<?php echo base_url(); ?>'>Back to Home</a>
 				
 			</form>
 			<span>don't have an account?	<a class="btn btn-link" href='<?php echo base_url(); ?>signup'>Sign Up</a> </span>
