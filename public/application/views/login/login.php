@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +33,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="POST" action="#">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input require type="text" class="form-control form-control-user" id="inputUsername" placeholder="Username" title="Enter your username.">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input require type="password" class="form-control form-control-user" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" id="inputPassword" placeholder="Password" title="Enter your password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -46,9 +46,9 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="<?php echo base_url(); ?>" class="btn btn-primary btn-user btn-block">
+                    <button id="loginButton" type="submit" class="btn btn-primary btn-user btn-block">
                       Login
-                    </a>
+                    </button>
                   </form>
                   <hr>
                   <div class="text-center">
