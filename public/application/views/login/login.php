@@ -33,12 +33,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user" method="POST" action="#">
+                  <form class="user" method="POST" action="<?php echo base_url() ?>index.php/Home">
                     <div class="form-group">
-                      <input require type="text" class="form-control form-control-user" id="inputUsername" placeholder="Username" title="Enter your username.">
+                      <input required type="text" class="form-control form-control-user" id="inputUsername" placeholder="Username" title="Enter your username.">
                     </div>
                     <div class="form-group">
-                      <input require type="password" class="form-control form-control-user" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" id="inputPassword" placeholder="Password" title="Enter your password">
+                      <input required type="password" class="form-control form-control-user" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="inputPassword" placeholder="Password" title="Enter your password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
