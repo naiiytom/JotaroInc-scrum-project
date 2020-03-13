@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>HOME PAGE</title>
+  <title>Approve Register</title>
 
 </head>
 
@@ -24,7 +24,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-torii-gate"></i>
+            <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -33,7 +33,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Home</span></a>
@@ -49,17 +49,17 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed active" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
+            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveMaintence">Approve maintence</a>
           </div>
         </div>
@@ -300,13 +300,11 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <!-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> -->
+           <h1 class="h3 mb-4 text-gray-800">Approve Register Page</h1>
 
         </div>
         <!-- /.container-fluid -->
-            <div class="mb-4 card-body embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VYG4Y0NMSIA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            
         </div>
         <!-- End of Main Content -->
 
