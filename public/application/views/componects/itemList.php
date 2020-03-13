@@ -349,7 +349,7 @@
                       <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>
                       <td><a class="btn btn-info" href="#" role="button">Info</a></td>
                     </tr>
-                    <?php } ?>
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>

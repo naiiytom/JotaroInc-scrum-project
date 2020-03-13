@@ -335,8 +335,7 @@
                   <tbody>
 									<?php foreach ($data as $row) { 
 										if($row->PermissionID==0){
-
-										?>
+									?>
                     <tr>
                       <td><?php echo $row->AccountID; ?></td>
                       <td><?php echo $row->AUserName; ?></td>
@@ -347,11 +346,7 @@
                       <td><a class="btn btn-info" href="#" role="button">Info</a></td>
                     </tr>
 									</tbody>
-									<?php }else{
-
-
-											}
-											} ?>
+									<?php } }?>
                 </table>
               </div>
             </div>

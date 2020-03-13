@@ -331,8 +331,7 @@
                   <tbody>
 									<?php foreach ($data as $row) { 
 										if($row->PermissionID==1){
-
-										?>
+									?>
 
                     <tr>
                       <td><?php echo $row->AccountID; ?></td>
@@ -347,25 +346,17 @@
 													<?php
 														$active = $row->isActive;
 														if ($active==0){
-															?>
-															<p id="letter" class="isinactive"> <b>InActive</b> </p>
-															<?php
-														}else{
-															?>
-															<p id="letter" class="isactive"> <b>Active</b> </p>
-															<?php
-														}
 													?>
-													
+															<p id="letter" class="isinactive"> <b>InActive</b> </p>
+													<?php
+														}else{
+													?>
+															<p id="letter" class="isactive"> <b>Active</b> </p>
+													<?php } ?>
 												</div>
 											</td>
 										</tr>									
-
-										<?php }else{
-
-
-										}
-										} ?>
+									<?php } } ?>
                   </tbody>
                 </table>
               </div>
