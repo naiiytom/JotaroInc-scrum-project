@@ -300,7 +300,78 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Repair List Page</h1>
+					 <h1 class="h3 mb-4 text-gray-800">Repair List Page</h1>
+					 
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Repair list Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Maintenance</th>
+                      <th>Item Seriel Number</th>
+                      <th>Maintenance Detail</th>
+                      <th>Information Date</th>
+											<th>Hastiness</th>
+											<th>Informer</th>
+											<th>Status</th>
+											<th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+											<th>Maintenance</th>
+											<th>Item Seriel Number</th>
+											<th>Maintenance Detail</th>
+                      <th>Information Date</th>                      
+											<th>Hastiness</th>
+											<th>Informer</th>
+											<th>Status</th>
+											<th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" id="HurryCheck">
+													<label class="form-check-label" for="HurryCheck">
+														Hurry
+													</label>
+												</div>
+											</td>
+											<td>$320,800</td>
+											<td>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="exampleRadios" id="RepairingRadios" value="Repairing" checked>
+													<label class="form-check-label" for="RepairingRadios">
+														Repairing
+													</label>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="exampleRadios" id="FinishRadios" value="Finish">
+													<label class="form-check-label" for="FinishRadios">
+														Finish
+													</label>
+												</div>
+											</td>
+											<td>
+												<a type="submit" class="btn btn-primary">Update</a>
+											</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->

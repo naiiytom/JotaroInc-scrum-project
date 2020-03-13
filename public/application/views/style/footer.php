@@ -7,3 +7,4 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?php echo base_url(); ?>public/js/sb-admin-2.min.js"></script>
+<script src="<?php echo base_url(); ?>public/js/password-validation.js"></script>
