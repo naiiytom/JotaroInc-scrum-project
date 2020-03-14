@@ -10,7 +10,7 @@
   <meta name="author" content="">
 
   <title>Account List</title>
-
+	
 </head>
 
 <body id="page-top">
@@ -302,6 +302,76 @@
           <!-- Page Heading -->
            <h1 class="h3 mb-4 text-gray-800">Account List Page</h1>
 
+        	<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Account list Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Account ID</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
+                      <th>Access</th>
+											<th>is Active</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+											<th>Account ID</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
+                      <th>Access</th>
+											<th>is Active</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+									<?php foreach ($data as $row) { 
+										if($row->PermissionID==1){
+
+										?>
+
+                    <tr>
+                      <td><?php echo $row->AccountID; ?></td>
+                      <td><?php echo $row->AUserName; ?></td>
+                      <td>
+												<a type="submit" class="btn btn-primary">Show Password</a>
+											</td>
+                      <td><?php echo $row->AccessName; ?></td>
+                      <td>
+												<div id=isActive>
+
+													<?php
+														$active = $row->isActive;
+														if ($active==0){
+															?>
+															<p id="letter" class="isinactive"> <b>InActive</b> </p>
+															<?php
+														}else{
+															?>
+															<p id="letter" class="isactive"> <b>Active</b> </p>
+															<?php
+														}
+													?>
+													
+												</div>
+											</td>
+										</tr>									
+
+										<?php }else{
+
+
+										}
+										} ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
         </div>
         <!-- /.container-fluid -->
             
@@ -347,6 +417,6 @@
       </div>
     </div>
   </div>
-
+	
 </body>
 </html>

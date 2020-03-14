@@ -1,0 +1,58 @@
+#message p {
+	padding: 10px 35px;
+	font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.isactive {
+	color: green;
+}
+
+.isactive:before {
+	position: relative;
+	left: -5px;
+	content: "◉";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.isinactive {
+	color: lightgray;
+}
+
+.isinactive:before {
+	position: relative;
+	left: -5px;
+	content: "◉";
+}
+#message p {
+	padding: 10px 35px;
+	font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+	color: green;
+}
+
+.valid:before {
+	position: relative;
+	left: -35px;
+	content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+	color: red;
+}
+
+.invalid:before {
+	position: relative;
+	left: -35px;
+	content: "✖";
+}
+
+.bg-gradient-jotaro{
+	background-color: rgb(160 ,32, 240);
+	background-image: linear-gradient(180deg, rgb(160 ,32, 240) 10%,rgb(147 ,112 ,219) 100%);
+	background-size: cover;
+}

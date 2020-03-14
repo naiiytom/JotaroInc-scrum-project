@@ -300,7 +300,59 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Approve Maintence Page</h1>
+          <h1 class="h3 mb-2 text-gray-800">Approve Maintenance Tables</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Approve Maintenance List</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Maintenance ID</th>
+                      <th>S/N</th>
+                      <th>Inform Date</th>
+                      <th>Detail</th>
+                      <th>Hastiness</th>
+                      <th>Username</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Maintenance ID</th>
+                      <th>S/N</th>
+                      <th>Inform Date</th>
+                      <th>Detail</th>
+                      <th>Hastiness</th>
+                      <th>Username</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>$320,800</td>
+                      <td><a class="btn btn-success" href="#" role="button">Allow</a></td>
+                      <td><a class="btn btn-danger" href="#" role="button">disallow</a></td>
+                      <td><a class="btn btn-info" href="#" role="button">Info</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->

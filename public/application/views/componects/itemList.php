@@ -300,7 +300,61 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Item List Page</h1>
+          <h1 class="h3 mb-2 text-gray-800">Item List Tables</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Item List</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Item Name</th>
+                      <th>Model</th>
+                      <th>Brand</th>
+                      <th>S/N</th>
+                      <th>Status</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Item Name</th>
+                      <th>Model</th>
+                      <th>Brand</th>
+                      <th>S/N</th>
+                      <th>Status</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                  <?php foreach ($data as $row) { ?>
+                    <tr>
+                      <td><?php echo $row->ItemID; ?></td>
+                      <td><?php echo $row->ItemName; ?></td>
+                      <td><?php echo $row->ItemModel; ?></td>
+                      <td><?php echo $row->ItemBrand; ?></td>
+                      <td><?php echo $row->ItemSN; ?></td>
+                      <td><?php echo $row->StatusName; ?></td>
+                      <td><a class="btn btn-success" href="#" role="button">Edit</a></td>
+                      <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>
+                      <td><a class="btn btn-info" href="#" role="button">Info</a></td>
+                    </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
