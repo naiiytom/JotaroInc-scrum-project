@@ -1,6 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Repair List</title>
+  <title>Approve Register</title>
 
 </head>
 
@@ -24,7 +25,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-torii-gate"></i>
+          <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -57,9 +58,9 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
-            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
+            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveMaintence">Approve maintence</a>
           </div>
         </div>
@@ -300,74 +301,54 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-					 <h1 class="h3 mb-4 text-gray-800">Repair List Page</h1>
-					 
-					<!-- DataTales Example -->
-					<div class="card shadow mb-4">
+          <h1 class="h3 mb-2 text-gray-800">Approve Register Tables</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Repair list Tables</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Approve Register List</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Maintenance</th>
-                      <th>Item Seriel Number</th>
-                      <th>Maintenance Detail</th>
-                      <th>Information Date</th>
-											<th>Hastiness</th>
-											<th>Informer</th>
-											<th>Status</th>
-											<th></th>
+                      <th>Account ID</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Access</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-											<th>Maintenance</th>
-											<th>Item Seriel Number</th>
-											<th>Maintenance Detail</th>
-                      <th>Information Date</th>                      
-											<th>Hastiness</th>
-											<th>Informer</th>
-											<th>Status</th>
-											<th></th>
+                      <th>Account ID</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Access</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" id="HurryCheck">
-													<label class="form-check-label" for="HurryCheck">
-														Hurry
-													</label>
-												</div>
-											</td>
-											<td>$320,800</td>
-											<td>
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="exampleRadios" id="RepairingRadios" value="Repairing" checked>
-													<label class="form-check-label" for="RepairingRadios">
-														Repairing
-													</label>
-												</div>
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="exampleRadios" id="FinishRadios" value="Finish">
-													<label class="form-check-label" for="FinishRadios">
-														Finish
-													</label>
-												</div>
-											</td>
-											<td>
-												<a type="submit" class="btn btn-primary">Update</a>
-											</td>
-                    </tr>
+                    <?php foreach ($data as $row) {
+                      if ($row->PermissionID == 0) {
+                    ?>
+                        <tr>
+                          <td><?php echo $row->AccountID; ?></td>
+                          <td><?php echo $row->AUserName; ?></td>
+                          <td><a class="btn btn-primary" href="#" role="button"><?php echo $row->APassWord ?></a></td>
+                          <td><?php echo $row->AccessName; ?></td>
+                          <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
+                          <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
+                          <td><a class="btn btn-info" href="#" role="button">Info</a></td>
+                        </tr>
                   </tbody>
+              <?php }
+                    } ?>
                 </table>
               </div>
             </div>
@@ -375,9 +356,9 @@
 
         </div>
         <!-- /.container-fluid -->
-            
-        </div>
-        <!-- End of Main Content -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -419,5 +400,44 @@
     </div>
   </div>
 
+  <!-- Allow Modal-->
+  <div class="modal fade" id="AllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Allow Account?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Allow Account.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DisAllow Modal-->
+  <div class="modal fade" id="DisAllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Disallow Account?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Disallow Account.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
+
 </html>

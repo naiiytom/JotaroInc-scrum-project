@@ -1,19 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class RepairList extends CI_Controller {
+class ItemInfomation extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('components/Query');
+        $this->load->model('userpages/Query');
 	}
-
+	
 	public function index()
 	{
-		$result['data']=$this->Query->getApproveMaintenanceIsActive1FromDB();
+		$ItemSN = $this->input->get('ItemSN');
+		$result['data']=$this->Query->getItemAllDetailFromDB($ItemSN);
 		$this->load->view('style/header');
-		$this->load->view('components/repairList', $result);
+		$this->load->view('userpages/itemInfomation', $result);
 		$this->load->view('style/footer');
 	}
 }

@@ -1,6 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -297,6 +298,17 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+        <style>
+          #CS-div {
+            position: relative;
+            overflow: hidden;
+          }
+
+          #CS-iframe {
+            position: absolute;
+            width: 750px;
+          }
+        </style>
         <div class="container-fluid">
 
           <!-- Page Heading -->
@@ -304,11 +316,11 @@
 
         </div>
         <!-- /.container-fluid -->
-            <div class="mb-4 card-body embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VYG4Y0NMSIA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+        <div id="CS-div" class="mb-4 card-body embed-responsive embed-responsive-16by9">
+          <iframe id="CS-iframe" class="embed-responsive-item" src="https://cs.kku.ac.th/index.php/th/featured-news-all#system-message-container" scrolling="no"></iframe>
         </div>
-        <!-- End of Main Content -->
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -351,4 +363,5 @@
   </div>
 
 </body>
+
 </html>

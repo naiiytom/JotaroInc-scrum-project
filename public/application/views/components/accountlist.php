@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Maintence History</title>
+  <title>Account List</title>
 
 </head>
 
@@ -50,16 +50,16 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed active" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
+            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveMaintence">Approve maintence</a>
           </div>
@@ -75,16 +75,16 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Pages:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Maintenance">Maintenance</a>
-            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
             <div class="collapse-divider"></div>
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
@@ -301,43 +301,76 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Maintence History Page</h1>
+          <h1 class="h3 mb-4 text-gray-800">Account List Page</h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Account list Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Account ID</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
+                      <th>Access</th>
+                      <th>is Active</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Account ID</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
+                      <th>Access</th>
+                      <th>is Active</th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <?php foreach ($data as $row) {
+                      if ($row->PermissionID == 1) {
+                    ?>
+
+                        <tr>
+                          <td><?php echo $row->AccountID; ?></td>
+                          <td><?php echo $row->AUserName; ?></td>
+                          <td>
+                            <a class="btn btn-primary" href="#" role="button"><?php echo $row->APassWord ?></a>
+                          </td>
+                          <td><?php echo $row->AccessName; ?></td>
+                          <td>
+                            <div id=isActive>
+
+                              <?php
+                              $active = $row->isActive;
+                              if ($active == 0) {
+                              ?>
+                                <p id="letter" class="isinactive"> <b>InActive</b> </p>
+                              <?php
+                              } else {
+                              ?>
+                                <p id="letter" class="isactive"> <b>Active</b> </p>
+                              <?php } ?>
+                            </div>
+                          </td>
+                          <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoAcountIsActive1?ItemSN=<?php echo $row->AccountID ?>" role="button">Info</a></td>
+                        </tr>
+                    <?php }
+                    } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List History</h6>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Item ID</th>
-                    <th>Item Name</th>
-                    <th>Model</th>
-                    <th>Beand</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>INFO</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2020/03/14</td>
-                    <td>กำลังรอดำเนินการ</td>
-                    <td><button type="button" class="btn btn-success">รายละเอียด</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+
       </div>
       <!-- End of Main Content -->
 

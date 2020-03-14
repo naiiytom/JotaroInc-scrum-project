@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +30,8 @@
               <form class="user">
                 <a href="<?php echo base_url(); ?>index.php/student" class="btn btn-primary  btn-block">
                   Register as Student
-								</a>
-								<a href="<?php echo base_url(); ?>index.php/academic" class="btn btn-primary  btn-block">
+                </a>
+                <a href="<?php echo base_url(); ?>index.php/academic" class="btn btn-primary  btn-block">
                   Register as Academic Staff
                 </a>
               </form>

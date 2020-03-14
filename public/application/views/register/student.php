@@ -11,7 +11,7 @@
 	<meta name="author" content="">
 
 	<title>Register as Student</title>
-	
+
 </head>
 
 <body class="bg-gradient-primary">
