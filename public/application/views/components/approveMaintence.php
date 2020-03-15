@@ -337,17 +337,19 @@
                     </tr>
                   </tfoot>
                   <tbody>
+                  <?php foreach ($data as $row) { ?>
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                      <td><a class="btn btn-success" href="#" role="button">Allow</a></td>
-                      <td><a class="btn btn-danger" href="#" role="button">disallow</a></td>
+                      <td><?php echo $row->MTID; ?></td>
+                      <td><?php echo $row->ItemSN; ?></td>
+                      <td><?php echo $row->InformDate; ?></td>
+                      <td><?php echo $row->MtDetail; ?></td>
+                      <td><?php echo $row->HName; ?></td>
+                      <td><?php echo $row->AUserName; ?></td>
+                      <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
+                      <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
                       <td><a class="btn btn-info" href="#" role="button">Info</a></td>
                     </tr>
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -395,6 +397,44 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/Login">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Allow Modal-->
+  <div class="modal fade" id="AllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Allow Maintenance?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Allow Maintenance.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DisAllow Modal-->
+  <div class="modal fade" id="DisAllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Disallow Maintenance?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Disallow Maintenance.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
         </div>
       </div>
     </div>

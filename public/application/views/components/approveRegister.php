@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Item List</title>
+  <title>Approve Register</title>
 
 </head>
 
@@ -56,10 +56,10 @@
         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item  active" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
+            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveMaintence">Approve maintence</a>
           </div>
         </div>
@@ -300,24 +300,22 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Item List Tables</h1>
+          <h1 class="h3 mb-2 text-gray-800">Approve Register Tables</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Item List</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Approve Register List</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Item ID</th>
-                      <th>Item Name</th>
-                      <th>Model</th>
-                      <th>Brand</th>
-                      <th>S/N</th>
-                      <th>Status</th>
+                      <th>Account ID</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Access</th>
                       <th></th>
                       <th></th>
                       <th></th>
@@ -325,32 +323,30 @@
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Item ID</th>
-                      <th>Item Name</th>
-                      <th>Model</th>
-                      <th>Brand</th>
-                      <th>S/N</th>
-                      <th>Status</th>
+                      <th>Account ID</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Access</th>
                       <th></th>
                       <th></th>
                       <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
-                  <?php foreach ($data as $row) { ?>
+									<?php foreach ($data as $row) { 
+										if($row->PermissionID==0){
+									?>
                     <tr>
-                      <td><?php echo $row->ItemID; ?></td>
-                      <td><?php echo $row->ItemName; ?></td>
-                      <td><?php echo $row->ItemModel; ?></td>
-                      <td><?php echo $row->ItemBrand; ?></td>
-                      <td><?php echo $row->ItemSN; ?></td>
-                      <td><?php echo $row->StatusName; ?></td>
-                      <td><a class="btn btn-success" href="#" role="button">Edit</a></td>
-                      <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>
+                      <td><?php echo $row->AccountID; ?></td>
+                      <td><?php echo $row->AUserName; ?></td>
+                      <td><a class="btn btn-primary"  href="#" role="button"><?php echo $row->APassWord ?></a></td>
+                      <td><?php echo $row->AccessName; ?></td>
+                      <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
+                      <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
                       <td><a class="btn btn-info" href="#" role="button">Info</a></td>
                     </tr>
-                  <?php } ?>
-                  </tbody>
+									</tbody>
+									<?php } }?>
                 </table>
               </div>
             </div>
@@ -397,6 +393,44 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/Login">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Allow Modal-->
+  <div class="modal fade" id="AllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Allow Account?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Allow Account.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DisAllow Modal-->
+  <div class="modal fade" id="DisAllowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Disallow Account?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "OK" Disallow Account.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="#">OK</a>
         </div>
       </div>
     </div>

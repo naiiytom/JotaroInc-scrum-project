@@ -1,6 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Maintence History</title>
+  <title>Maintenance item</title>
 
 </head>
 
@@ -74,16 +75,16 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Pages:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Maintenance">Maintenance</a>
-            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
             <div class="collapse-divider"></div>
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
@@ -300,85 +301,164 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Maintence History Page</h1>
-
-        </div>
-        <!-- /.container-fluid -->
-        <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List History</h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th>Item ID</th>
-                        <th>Item Name</th>
-                        <th>Model</th>
-                        <th>Beand</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>INFO</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2020/03/14</td>
-                        <td>กำลังรอดำเนินการ</td>
-                        <td><button type="button" class="btn btn-success">รายละเอียด</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+          <h1 class="h3 mb-2 text-gray-800" hidden>Add new item</h1>
+          <!-- DataTables Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Item</h6>
             </div>
-        </div>
-        <!-- End of Main Content -->
+            <div class="card-body">
+              <form id="itemAdd" method="POST" action="#">
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Jotaro Inc. 2020</span>
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemID">
+                      <H7> Item ID</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemID" class="form-control" id="ItemID" placeholder="e.g. 621000002017233" required> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemSN">
+                      <H7> Serial Number</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemSN" class="form-control" id="ItemSN" placeholder="e.g. 621000002017233-01" required> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemName">
+                      <H7> Name</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemName" class="form-control" id="ItemName" placeholder="e.g. Pointer" required> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemModel">
+                      <H7> Model</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemModel" class="form-control" id="ItemModel" placeholder="e.g. KL-01T"> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemBrand">
+                      <H7> Brand</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemBrand" class="form-control" id="ItemBrand" placeholder="e.g. Lenovo"> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemDescript">
+                      <H7> Description</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemDescript" class="form-control" id="ItemDescript" placeholder="e.g. A laser pointer"> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="LocalID">
+                      <H7> Location</H7>
+                    </label> </span>
+                  <div class="col-md-6">
+                    <select id="LocalID" name="LocalID" class="form-control">
+                      <?php //foreach ($this->Query->getLocationAllFromDB() as $item) {
+                        echo "<option value='" . $item['LocalID'] . "'>" . $item['LocalName'] . "</option>";
+                       ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="CatID">
+                      <H7> Category</H7>
+                    </label> </span>
+                  <div class="col-md-6">
+                    <select id="CatID" name="CatID" class="form-control">
+                      <?php //foreach ($this->Query->getCategoryAllFromDB() as $item) {
+                        echo "<option value='" . $item['CatID'] . "'>" . $item['CatName'] . "</option>";
+                       ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="StatusID">
+                      <H7> Status</H7>
+                    </label> </span>
+                  <div class="col-md-6">
+                    <select id="StatusID" name="StatusID" class="form-control">
+                      <?php //foreach ($this->Query->getStatusAllFromDB() as $item) {
+                        echo "<option value='" . $item['StatusID'] . "'>" . $item['StatusName'] . "</option>";
+                       ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemYear">
+                      <H7> Bought Year</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="text" name="ItemYear" class="form-control" id="ItemYear" required placeholder="e.g. 2019" pattern="([0-9]{4})"> </span>
+                </div>
+
+                <div class="col px-md-5 mt-3">
+                  <span class="tim-note"> <label for="ItemImage">
+                      <H7> Image</H7>
+                    </label> </span>
+                  <span class="tim-note"> <input type="file" name="ItemImage" class="form-control" id="ItemImage" accept="image/*"> </span>
+                </div>
+
+                <br>
+                <div class="col px-md-5 mt-3">
+                  <input type="submit" name="btn_submit" id="btn_submit" class="btn btn-success" value="Submit" onclick="return confirm('ARE YOU SURE YOU WANT TO ADD NEW ITEM')">
+                  <a type="button" class="btn btn-danger" id="btn_cancle" name="btn_cancle" href="<?php echo base_url(); ?>index.php/Maintenance">Cancel</a>
+                  <input type="reset" name="btn_reset" id="btn_reset" class="btn btn-info" value="Reset">
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
+        <!-- /.container-fluid -->
+
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Jotaro Inc. 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/Login">Logout</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/Login">Logout</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
 </body>
+
 </html>

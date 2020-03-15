@@ -6,13 +6,14 @@ class ApproveRegister extends CI_Controller {
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('Query');
+        $this->load->model('components/Query');
 	}
+
 	public function index()
 	{
 		$result['data']=$this->Query->getApproveRegisterAllFromDB();
 		$this->load->view('style/header');
-		$this->load->view('componects/approveRegister',$result);
+		$this->load->view('components/approveRegister', $result);
 		$this->load->view('style/footer');
 	}
 }

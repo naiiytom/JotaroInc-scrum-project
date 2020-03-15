@@ -301,10 +301,45 @@
 
           <!-- Page Heading -->
            <h1 class="h3 mb-4 text-gray-800">Maintence Page</h1>
-
         </div>
         <!-- /.container-fluid -->
-            
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Model</th>
+                        <th>Brand</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                        <th>Change</th>
+                        <th>INFO</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($data as $row) { ?>
+                      <tr>
+                        <td><?php echo $row->ItemID; ?></td>
+                        <td><?php echo $row->ItemName; ?></td>
+                        <td><?php echo $row->ItemModel; ?></td>
+                        <td><?php echo $row->ItemBrand; ?></td>
+                        <td><?php echo $row->ItemYear; ?></td>
+                        <td><?php echo $row->StatusName; ?></td>
+                        <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/MaintenanceItem" role="button">แจ้งซ่อม</a></td>
+                        <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/ItemInfomation?ItemSN=<?php echo $row->ItemSN; ?>" role="button">รายละเอียด</a></td>
+                      </tr>
+                    <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
         </div>
         <!-- End of Main Content -->
 

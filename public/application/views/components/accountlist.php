@@ -9,8 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Approve Register</title>
-
+  <title>Account List</title>
+	
 </head>
 
 <body id="page-top">
@@ -58,8 +58,8 @@
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
-            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
+            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveMaintence">Approve maintence</a>
           </div>
         </div>
@@ -300,12 +300,12 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Approve Register Tables</h1>
+           <h1 class="h3 mb-4 text-gray-800">Account List Page</h1>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
+        	<!-- DataTales Example -->
+					<div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Approve Register List</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Account list Tables</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -313,40 +313,54 @@
                   <thead>
                     <tr>
                       <th>Account ID</th>
-                      <th>Username</th>
-                      <th>Password</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
                       <th>Access</th>
-                      <th></th>
-                      <th></th>
+											<th>is Active</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Account ID</th>
-                      <th>Username</th>
-                      <th>Password</th>
+											<th>Account ID</th>
+                      <th>User Name</th>
+                      <th>PassWord</th>
                       <th>Access</th>
-                      <th></th>
-                      <th></th>
+											<th>is Active</th>
                       <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
 									<?php foreach ($data as $row) { 
-										if($row->PermissionID==0){
+										if($row->PermissionID==1){
 									?>
+
                     <tr>
                       <td><?php echo $row->AccountID; ?></td>
                       <td><?php echo $row->AUserName; ?></td>
-                      <td><a type="submit" class="btn btn-primary">Show Password</a></td>
+                      <td>
+												<a class="btn btn-primary"  href="#" role="button"><?php echo $row->APassWord ?></a>
+											</td>
                       <td><?php echo $row->AccessName; ?></td>
-                      <td><a class="btn btn-success" href="#" role="button">Allow</a></td>
-                      <td><a class="btn btn-danger" href="#" role="button">disallow</a></td>
-                      <td><a class="btn btn-info" href="#" role="button">Info</a></td>
-                    </tr>
-									</tbody>
-									<?php } }?>
+                      <td>
+												<div id=isActive>
+
+													<?php
+														$active = $row->isActive;
+														if ($active==0){
+													?>
+															<p id="letter" class="isinactive"> <b>InActive</b> </p>
+													<?php
+														}else{
+													?>
+															<p id="letter" class="isactive"> <b>Active</b> </p>
+													<?php } ?>
+												</div>
+											</td>
+                      <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoAcountIsActive1?ItemSN=<?php echo $row->AccountID ?>" role="button">Info</a></td>
+										</tr>									
+									<?php } } ?>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -397,6 +411,6 @@
       </div>
     </div>
   </div>
-
+	
 </body>
 </html>

@@ -1,6 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -9,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Maintence History</title>
+  <title>Item List</title>
 
 </head>
 
@@ -49,14 +50,14 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed active" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
+            <a class="collapse-item  active" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
@@ -74,16 +75,16 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Pages</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">User Pages:</h6>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Maintenance">Maintenance</a>
-            <a class="collapse-item active" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/MaintenanceHistory">Maintenance History</a>
             <div class="collapse-divider"></div>
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
@@ -300,45 +301,73 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Maintence History Page</h1>
+          <h1 class="h3 mb-2 text-gray-800">Item List Tables</h1>
+          <br>
+          <td><a href="NewItem" role="button" class="btn btn-primary">Add new item</a></td>
+          <br><br>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Item List</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Item Name</th>
+                      <th>Model</th>
+                      <th>Brand</th>
+                      <th>S/N</th>
+                      <th>Status</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Item ID</th>
+                      <th>Item Name</th>
+                      <th>Model</th>
+                      <th>Brand</th>
+                      <th>S/N</th>
+                      <th>Status</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <?php $ItemSN = '' ?>
+                    <?php foreach ($data as $row) { ?>
+                      <tr>
+
+                        <td><?php echo $row->ItemID; ?></td>
+                        <td><?php echo $row->ItemName; ?></td>
+                        <td><?php echo $row->ItemModel; ?></td>
+                        <td><?php echo $row->ItemBrand; ?></td>
+                        <td><?php echo $row->ItemSN; ?></td>
+                        <td><?php echo $row->StatusName; ?></td>
+                        <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/EditItem?ItemSN=<?php echo $row->ItemSN; ?>" role="button" onclick="return confirm('ARE YOU SURE YOU WANT TO EDIT')">Edit</a></td>
+                        <td><a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/DeleteItem?ItemSN=<?php echo $row->ItemSN; ?>" role="button" onclick="return confirm('ARE YOU SURE YOU WANT TO DELETE')">Delete</a></td>
+                        <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoItem?ItemSN=<?php echo $row->ItemSN; ?>" role="button">Info</a></td>
+                      </tr>
+
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
-        <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List History</h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th>Item ID</th>
-                        <th>Item Name</th>
-                        <th>Model</th>
-                        <th>Beand</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>INFO</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2020/03/14</td>
-                        <td>กำลังรอดำเนินการ</td>
-                        <td><button type="button" class="btn btn-success">รายละเอียด</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-        </div>
-        <!-- End of Main Content -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -381,4 +410,5 @@
   </div>
 
 </body>
+
 </html>
