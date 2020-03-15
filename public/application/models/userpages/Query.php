@@ -24,5 +24,6 @@ class Query extends CI_Model
             AND tbitem.isActive = 1;
         ");
         return $query->result();
+
     }
 }

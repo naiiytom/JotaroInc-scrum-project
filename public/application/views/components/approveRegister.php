@@ -1,3 +1,4 @@
+
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
+
           <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
@@ -334,21 +336,20 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <?php foreach ($data as $row) {
-                      if ($row->PermissionID == 0) {
-                    ?>
-                        <tr>
-                          <td><?php echo $row->AccountID; ?></td>
-                          <td><?php echo $row->AUserName; ?></td>
-                          <td><a class="btn btn-primary" href="#" role="button"><?php echo $row->APassWord ?></a></td>
-                          <td><?php echo $row->AccessName; ?></td>
-                          <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
-                          <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
-                          <td><a class="btn btn-info" href="#" role="button">Info</a></td>
-                        </tr>
-                  </tbody>
-              <?php }
-                    } ?>
+									<?php foreach ($data as $row) { 
+										if($row->PermissionID==0){
+									?>
+                    <tr>
+                      <td><?php echo $row->AccountID; ?></td>
+                      <td><?php echo $row->AUserName; ?></td>
+                      <td><a class="btn btn-primary"  href="#" role="button"><?php echo $row->APassWord ?></a></td>
+                      <td><?php echo $row->AccessName; ?></td>
+                      <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
+                      <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
+                      <td><a class="btn btn-info" href="#" role="button">Info</a></td>
+                    </tr>
+									</tbody>
+									<?php } }?>
                 </table>
               </div>
             </div>
@@ -356,9 +357,10 @@
 
         </div>
         <!-- /.container-fluid -->
+            
+        </div>
+        <!-- End of Main Content -->
 
-      </div>
-      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -439,5 +441,4 @@
   </div>
 
 </body>
-
 </html>
