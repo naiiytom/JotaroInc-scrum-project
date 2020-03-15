@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,7 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-torii-gate"></i>
+
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -300,8 +302,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Account Infomation</h1>
 
+           <h1 class="h3 mb-4 text-gray-800">Account Infomation</h1>
         </div>
         <!-- /.container-fluid -->
         <div class="card shadow mb-4">
@@ -336,7 +338,6 @@
             </div>
         </div>
         <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -379,3 +380,4 @@
 
 </body>
 </html>
+

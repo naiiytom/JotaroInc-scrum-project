@@ -17,4 +17,3 @@ class ITemList extends CI_Controller {
 		$this->load->view('style/footer');
 	}
 }
-?>

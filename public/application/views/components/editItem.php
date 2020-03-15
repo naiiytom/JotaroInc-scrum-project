@@ -309,8 +309,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit an item named: <?php echo $row->ItemName; ?></h6>
               </div>
               <div class="card-body">
-                <form id="itemUpdate" method="POST" action="<?php echo base_url('index.php/EditItem/update/'.$row->ItemSN) ?>">
-
+                <form id="itemUpdate" method="POST" action="<?php echo base_url('index.php/EditItem/update/' . $row->ItemSN) ?>">
                   <div class="col px-md-5 mt-3">
                     <span class="tim-note"> <label for="ItemID">
                         <H7> Item ID</H7>

@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -302,6 +303,7 @@
           <!-- Page Heading -->
            <h1 class="h3 mb-4 text-gray-800">Item Infomation</h1>
 
+
         </div>
         <!-- /.container-fluid -->
         <div class="card shadow mb-4">
@@ -379,3 +381,4 @@
 
 </body>
 </html>
+

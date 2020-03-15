@@ -18,4 +18,3 @@ class InfoAcountIsActive1 extends CI_Controller {
 		$this->load->view('style/footer');
 	}
 }
-?>

@@ -14,7 +14,6 @@ class DeleteItem extends CI_Controller
     {
         $ItemSN = $this->input->get('ItemSN');
         $this->Delete->deleteItemWhereItemSN($ItemSN);
-		header('Location: ItemList');
+        header('Location: ItemList');
     }
-
 }

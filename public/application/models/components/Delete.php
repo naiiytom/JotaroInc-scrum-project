@@ -10,5 +10,5 @@ class Delete extends CI_Model
             SET isActive = 0
             WHERE tbitem.ItemSN = '$ItemSN';
         ");
-	}
+    }
 }

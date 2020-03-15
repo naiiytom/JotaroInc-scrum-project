@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
   <meta name="author" content="">
 
   <title>Account List</title>
-	
+
 </head>
 
 <body id="page-top">
@@ -24,7 +25,8 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-torii-gate"></i>
+
+        <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -316,17 +318,20 @@
                       <th>User Name</th>
                       <th>PassWord</th>
                       <th>Access</th>
+                      
 											<th>is Active</th>
+
                       <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-											<th>Account ID</th>
+
+                      <th>Account ID</th>
                       <th>User Name</th>
-                      <th>PassWord</th>
+                      <th>Password</th>
                       <th>Access</th>
-											<th>is Active</th>
+                      <th>is Active</th>
                       <th></th>
                     </tr>
                   </tfoot>
@@ -360,6 +365,7 @@
                       <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoAcountIsActive1?ItemSN=<?php echo $row->AccountID ?>" role="button">Info</a></td>
 										</tr>									
 									<?php } } ?>
+
                   </tbody>
                 </table>
               </div>
@@ -371,6 +377,7 @@
             
         </div>
         <!-- End of Main Content -->
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -411,6 +418,5 @@
       </div>
     </div>
   </div>
-	
 </body>
 </html>

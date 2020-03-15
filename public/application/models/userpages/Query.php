@@ -12,7 +12,7 @@ class Query extends CI_Model
         ");
         return $query->result();
     }
-    
+
     function getItemAllDetailFromDB($ItemSN)
     {
         $query = $this->db->query("
@@ -24,5 +24,6 @@ class Query extends CI_Model
             AND tbitem.isActive = 1;
         ");
         return $query->result();
-	}
+
+    }
 }

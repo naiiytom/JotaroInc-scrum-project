@@ -9,4 +9,3 @@ class MaintenanceHistory extends CI_Controller {
 		$this->load->view('style/footer');
 	}
 }
-?>

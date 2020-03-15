@@ -1,6 +1,7 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -300,7 +301,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Maintence History Page</h1>
+          <h1 class="h3 mb-4 text-gray-800">Maintence History Page</h1>
 
         </div>
         <!-- /.container-fluid -->
@@ -337,8 +338,10 @@
                 </div>
               </div>
             </div>
+
         </div>
-        <!-- End of Main Content -->
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -381,4 +384,5 @@
   </div>
 
 </body>
+
 </html>
