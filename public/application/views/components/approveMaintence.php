@@ -1,7 +1,7 @@
-
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -25,7 +25,6 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-
           <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
@@ -339,19 +338,19 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                  <?php foreach ($data as $row) { ?>
-                    <tr>
-                      <td><?php echo $row->MTID; ?></td>
-                      <td><?php echo $row->ItemSN; ?></td>
-                      <td><?php echo $row->InformDate; ?></td>
-                      <td><?php echo $row->MtDetail; ?></td>
-                      <td><?php echo $row->HName; ?></td>
-                      <td><?php echo $row->AUserName; ?></td>
-                      <td><a class="btn btn-success" href="#" data-toggle="modal" data-target="#AllowModal" role="button">Allow</a></td>
-                      <td><a class="btn btn-danger" href="#" data-toggle="modal" data-target="#DisAllowModal" role="button">disallow</a></td>
-                      <td><a class="btn btn-info" href="#" role="button">Info</a></td>
-                    </tr>
-                  <?php } ?>
+                    <?php foreach ($data as $row) { ?>
+                      <tr>
+                        <td><?php echo $row->MTID; ?></td>
+                        <td><?php echo $row->ItemSN; ?></td>
+                        <td><?php echo $row->InformDate; ?></td>
+                        <td><?php echo $row->MtDetail; ?></td>
+                        <td><?php echo $row->HName; ?></td>
+                        <td><?php echo $row->AUserName; ?></td>
+                        <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/AllowMaintenance?MTID=<?php echo $row->MTID; ?>&isActive=1&ItemSN=<?php echo $row->ItemSN; ?>&StatusID=2" onclick="return confirm('Select OK Allow Maintenance.')" role="button">Allow</a></td>
+                        <td><a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/AllowMaintenance?MTID=<?php echo $row->MTID; ?>&isActive=2&ItemSN=<?php echo $row->ItemSN; ?>&StatusID=0" onclick="return confirm('Select OK Disallow Maintenance.')" role="button">disallow</a></td>
+                        <td><a class="btn btn-info" href="#" role="button">Info</a></td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -360,9 +359,9 @@
 
         </div>
         <!-- /.container-fluid -->
-            
-        </div>
-        <!-- End of Main Content -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -414,7 +413,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "OK" Allow Maintenance.</div>
+        <div class="modal-body"></div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="#">OK</a>
@@ -443,4 +442,5 @@
   </div>
 
 </body>
+
 </html>

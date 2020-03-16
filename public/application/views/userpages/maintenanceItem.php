@@ -308,110 +308,60 @@
               <h6 class="m-0 font-weight-bold text-primary">Item</h6>
             </div>
             <div class="card-body">
-              <form id="itemAdd" method="POST" action="#">
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemID">
-                      <H7> Item ID</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemID" class="form-control" id="ItemID" placeholder="e.g. 621000002017233" required> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemSN">
-                      <H7> Serial Number</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemSN" class="form-control" id="ItemSN" placeholder="e.g. 621000002017233-01" required> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemName">
-                      <H7> Name</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemName" class="form-control" id="ItemName" placeholder="e.g. Pointer" required> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemModel">
-                      <H7> Model</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemModel" class="form-control" id="ItemModel" placeholder="e.g. KL-01T"> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemBrand">
-                      <H7> Brand</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemBrand" class="form-control" id="ItemBrand" placeholder="e.g. Lenovo"> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemDescript">
-                      <H7> Description</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemDescript" class="form-control" id="ItemDescript" placeholder="e.g. A laser pointer"> </span>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="LocalID">
-                      <H7> Location</H7>
-                    </label> </span>
-                  <div class="col-md-6">
-                    <select id="LocalID" name="LocalID" class="form-control">
-                      <?php //foreach ($this->Query->getLocationAllFromDB() as $item) {
-                        echo "<option value='" . $item['LocalID'] . "'>" . $item['LocalName'] . "</option>";
-                       ?>
-                    </select>
+              <?php foreach ($data as $row) { ?>
+                <form enctype="multipart/form-data" id="MaintenanceAdd" method="POST" action="<?= base_url() ?>index.php/UploadAndMaintenance?ItemSN=<?php echo $row->ItemSN ?>">
+                  <div class="col px-md-5 mt-3">
+                    <H7> Item ID : </H7>
+                    <H10><?php echo $row->ItemID; ?></H10><br>
+                    <H7> Serial Number : </H7>
+                    <H10><?php echo $row->ItemSN ?></H10><br>
+                    <H7> Category : </H7>
+                    <H10><?php echo $row->CatName ?></H10><br>
+                    <H7> Name : </H7>
+                    <H10><?php echo $row->ItemName; ?></H10><br>
+                    <H7> Brand : </H7>
+                    <H10><?php echo $row->ItemBrand; ?></H10><br>
+                    <H7> Model : </H7>
+                    <H10><?php echo $row->ItemModel; ?></H10><br>
+                    <H7> Location : </H7>
+                    <H10><?php echo $row->LocalName; ?></H10><br>
                   </div>
-                </div>
-
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="CatID">
-                      <H7> Category</H7>
-                    </label> </span>
-                  <div class="col-md-6">
-                    <select id="CatID" name="CatID" class="form-control">
-                      <?php //foreach ($this->Query->getCategoryAllFromDB() as $item) {
-                        echo "<option value='" . $item['CatID'] . "'>" . $item['CatName'] . "</option>";
-                       ?>
-                    </select>
+                  <div class="col px-md-5 mt-3">
+                    <span class="tim-note"> <label for="MtDetail">
+                        <H7> Reason</H7>
+                      </label> </span>
+                    <span class="tim-note"> <input type="text" class="form-control" name="MtDetail" id="MtDetail" required placeholder="Ex. something is broken"> </span>
                   </div>
-                </div>
 
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="StatusID">
-                      <H7> Status</H7>
-                    </label> </span>
-                  <div class="col-md-6">
-                    <select id="StatusID" name="StatusID" class="form-control">
-                      <?php //foreach ($this->Query->getStatusAllFromDB() as $item) {
-                        echo "<option value='" . $item['StatusID'] . "'>" . $item['StatusName'] . "</option>";
-                       ?>
-                    </select>
+                  <div class="col px-md-5 mt-3">
+                    <span class="tim-note"> <label for="HasID">
+                        <H7> Priority</H7>
+                      </label> </span>
+                    <span class="tim-note">
+                      <select id="HasID" name="HasID" class="form-control">
+                        <option value="0" selected disabled hidden>Choose here</option>
+                        <option value="0">Not Important</option>
+                        <option value="1">Important</option>
+                      </select>
+                    </span>
                   </div>
-                </div>
 
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemYear">
-                      <H7> Bought Year</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="text" name="ItemYear" class="form-control" id="ItemYear" required placeholder="e.g. 2019" pattern="([0-9]{4})"> </span>
-                </div>
+                  <div class="col px-md-5 mt-3">
+                    <span class="tim-note"> <label for="ItemImage[]">
+                        <H7> Image</H7>
+                      </label> </span>
+                    <span class="tim-note"> <input type="file" class="form-control" name="ItemImage[]" id="ItemImage" multiple="multiple" accept="image/*"> </span>
+                  </div>
 
-                <div class="col px-md-5 mt-3">
-                  <span class="tim-note"> <label for="ItemImage">
-                      <H7> Image</H7>
-                    </label> </span>
-                  <span class="tim-note"> <input type="file" name="ItemImage" class="form-control" id="ItemImage" accept="image/*"> </span>
-                </div>
 
-                <br>
-                <div class="col px-md-5 mt-3">
-                  <input type="submit" name="btn_submit" id="btn_submit" class="btn btn-success" value="Submit" onclick="return confirm('ARE YOU SURE YOU WANT TO ADD NEW ITEM')">
-                  <a type="button" class="btn btn-danger" id="btn_cancle" name="btn_cancle" href="<?php echo base_url(); ?>index.php/Maintenance">Cancel</a>
-                  <input type="reset" name="btn_reset" id="btn_reset" class="btn btn-info" value="Reset">
-                </div>
-              </form>
+                  <br>
+                  <div class="col px-md-5 mt-3">
+                    <input type="submit" name="btn_submit" id="btn_submit" class="btn btn-success" value="Submit" onclick="return confirm('ARE YOU SURE YOU WANT TO NOTIFY TO REPAIR')">
+                    <a type="button" class="btn btn-danger" id="btn_cancle" name="btn_cancle" href="<?php echo base_url(); ?>index.php/Maintenance">Cancel</a>
+                    <input type="reset" name="btn_reset" id="btn_reset" class="btn btn-info" value="Reset">
+                  </div>
+                </form>
+              <?php } ?>
             </div>
           </div>
         </div>

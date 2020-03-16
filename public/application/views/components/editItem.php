@@ -54,10 +54,10 @@
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>
         </a>
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item  active" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ItemList">Item list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/RepairList">Repair list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/AccountList">Account list</a>
             <a class="collapse-item" href="<?php echo base_url(); ?>index.php/ApproveRegister">Approve register</a>
@@ -310,6 +310,7 @@
               </div>
               <div class="card-body">
                 <form id="itemUpdate" method="POST" action="<?php echo base_url('index.php/EditItem/update/' . $row->ItemSN) ?>">
+
                   <div class="col px-md-5 mt-3">
                     <span class="tim-note"> <label for="ItemID">
                         <H7> Item ID</H7>

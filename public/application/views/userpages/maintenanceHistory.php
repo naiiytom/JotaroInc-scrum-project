@@ -306,39 +306,39 @@
         </div>
         <!-- /.container-fluid -->
         <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List History</h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th>Item ID</th>
-                        <th>Item Name</th>
-                        <th>Model</th>
-                        <th>Beand</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>INFO</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2020/03/14</td>
-                        <td>กำลังรอดำเนินการ</td>
-                        <td><button type="button" class="btn btn-success">รายละเอียด</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Maintenance Item List History</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Maintenance ID</th>
+                    <th>Serial Number</th>
+                    <th>Inform Date</th>
+                    <th>Detail</th>
+                    <th>Hastiness</th>
+                    <th>ItemName</th>
+                    <th>INFO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($data as $row) { ?>
+                    <tr>
+                      <td><?php echo $row->MTID; ?></td>
+                      <td><?php echo $row->ItemSN; ?></td>
+                      <td><?php echo $row->InformDate; ?></td>
+                      <td><?php echo $row->MtDetail; ?></td>
+                      <td><?php echo $row->HName; ?></td>
+                      <td><?php echo $row->ItemName; ?></td>
+                      <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/MaintenanceHisInfo?MTID=<?php echo $row->MTID; ?>" role="button">รายละเอียด</a></td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
             </div>
-
+          </div>
         </div>
       </div>
       <!-- End of Main Content -->

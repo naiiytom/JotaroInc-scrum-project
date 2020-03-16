@@ -1,7 +1,7 @@
-
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -25,8 +25,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-
-        <i class="fas fa-torii-gate"></i>
+          <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -302,10 +301,10 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-           <h1 class="h3 mb-4 text-gray-800">Account List Page</h1>
+          <h1 class="h3 mb-4 text-gray-800">Account List Page</h1>
 
-        	<!-- DataTales Example -->
-					<div class="card shadow mb-4">
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Account list Tables</h6>
             </div>
@@ -318,54 +317,51 @@
                       <th>User Name</th>
                       <th>PassWord</th>
                       <th>Access</th>
-                      
-											<th>is Active</th>
-
+                      <th>is Active</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-
                       <th>Account ID</th>
                       <th>User Name</th>
-                      <th>Password</th>
+                      <th>PassWord</th>
                       <th>Access</th>
                       <th>is Active</th>
                       <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
-									<?php foreach ($data as $row) { 
-										if($row->PermissionID==1){
-									?>
+                    <?php foreach ($data as $row) {
+                      if ($row->PermissionID == 1) {
+                    ?>
 
-                    <tr>
-                      <td><?php echo $row->AccountID; ?></td>
-                      <td><?php echo $row->AUserName; ?></td>
-                      <td>
-												<a class="btn btn-primary"  href="#" role="button"><?php echo $row->APassWord ?></a>
-											</td>
-                      <td><?php echo $row->AccessName; ?></td>
-                      <td>
-												<div id=isActive>
+                        <tr>
+                          <td><?php echo $row->AccountID; ?></td>
+                          <td><?php echo $row->AUserName; ?></td>
+                          <td>
+                            <a class="btn btn-primary" href="#" role="button"><?php echo $row->APassWord ?></a>
+                          </td>
+                          <td><?php echo $row->AccessName; ?></td>
+                          <td>
+                            <div id=isActive>
 
-													<?php
-														$active = $row->isActive;
-														if ($active==0){
-													?>
-															<p id="letter" class="isinactive"> <b>InActive</b> </p>
-													<?php
-														}else{
-													?>
-															<p id="letter" class="isactive"> <b>Active</b> </p>
-													<?php } ?>
-												</div>
-											</td>
-                      <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoAcountIsActive1?ItemSN=<?php echo $row->AccountID ?>" role="button">Info</a></td>
-										</tr>									
-									<?php } } ?>
-
+                              <?php
+                              $active = $row->isActive;
+                              if ($active == 0) {
+                              ?>
+                                <p id="letter" class="isinactive"> <b>InActive</b> </p>
+                              <?php
+                              } else {
+                              ?>
+                                <p id="letter" class="isactive"> <b>Active</b> </p>
+                              <?php } ?>
+                            </div>
+                          </td>
+                          <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/InfoAcountIsActive1?ItemSN=<?php echo $row->AccountID ?>" role="button">Info</a></td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -374,10 +370,9 @@
 
         </div>
         <!-- /.container-fluid -->
-            
-        </div>
-        <!-- End of Main Content -->
 
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -418,5 +413,7 @@
       </div>
     </div>
   </div>
+
 </body>
+
 </html>

@@ -1,4 +1,3 @@
-
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +25,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-torii-gate"></i>
+          <i class="fas fa-torii-gate"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Jotaro Inc <sup>3</sup></div>
       </a>
@@ -318,55 +317,44 @@
                       <th>Item Seriel Number</th>
                       <th>Maintenance Detail</th>
                       <th>Information Date</th>
-											<th>Hastiness</th>
-											<th>Informer</th>
-											<th>Status</th>
-											<th></th>
+                      <th>Hastiness</th>
+                      <th>Informer</th>
+                      <th>Status</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-											<th>Maintenance ID</th>
-											<th>Item Seriel Number</th>
-											<th>Maintenance Detail</th>
-                      <th>Information Date</th>                      
-											<th>Hastiness</th>
-											<th>Informer</th>
-											<th>Status</th>
-											<th></th>
+                      <th>Maintenance ID</th>
+                      <th>Item Seriel Number</th>
+                      <th>Maintenance Detail</th>
+                      <th>Information Date</th>
+                      <th>Hastiness</th>
+                      <th>Informer</th>
+                      <th>Status</th>
+                      <th></th>
                     </tr>
                   </tfoot>
                   <tbody>
-                  <?php foreach ($data as $row) { ?>
-                    <tr>
-                      <td><?php echo $row->MTID; ?></td>
-                      <td><?php echo $row->ItemSN; ?></td>
-                      <td><?php echo $row->MtDetail; ?></td>
-                      <td><?php echo $row->InformDate; ?></td>
-                      <td>
-                        <?php echo $row->HName; ?>
-											</td>
-											<td><?php echo $row->AUserName; ?></td>
-											<td>
-												<div class="form-check">
-                        <?php echo $row->StatusName; ?>
-													<input class="form-check-input" type="radio" name="exampleRadios" id="RepairingRadios" value="Repairing" checked>
-													<label class="form-check-label" for="RepairingRadios">
-														Repairing
-													</label>
-												</div>
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="exampleRadios" id="FinishRadios" value="Finish">
-													<label class="form-check-label" for="FinishRadios">
-														Finish
-													</label>
-												</div>
-											</td>
-											<td>
-                        <a class="btn btn-success" href="#" data-toggle="modal" data-target="#UpdateModal" role="button">Update</a>
-											</td>
-                    </tr>
-                  <?php } ?>
+                    <?php foreach ($data as $row) { ?>
+                      <tr>
+                        <td><?php echo $row->MTID; ?></td>
+                        <td><?php echo $row->ItemSN; ?></td>
+                        <td><?php echo $row->MtDetail; ?></td>
+                        <td><?php echo $row->InformDate; ?></td>
+                        <td>
+                          <?php echo $row->HName; ?>
+                        </td>
+                        <td><?php echo $row->AUserName; ?></td>
+                        <td>
+                          <div class="form-check">
+                            <?php echo $row->StatusName; ?>
+                        </td>
+                        <td>
+                          <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/FinishMaintenance?MTID=<?php echo $row->MTID; ?>&isActive=2&StatusID=4&ItemSN=<?php echo $row->ItemSN; ?>" onclick="return confirm('Select OK End Maintenance.')" role="button">Finish</a>
+                        </td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -375,9 +363,9 @@
 
         </div>
         <!-- /.container-fluid -->
-            
-        </div>
-        <!-- End of Main Content -->
+
+      </div>
+      <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -439,5 +427,5 @@
   </div>
 
 </body>
-</html>
 
+</html>
