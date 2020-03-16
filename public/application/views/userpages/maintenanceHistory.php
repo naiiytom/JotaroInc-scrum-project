@@ -332,7 +332,7 @@
                       <td><?php echo $row->MtDetail; ?></td>
                       <td><?php echo $row->HName; ?></td>
                       <td><?php echo $row->ItemName; ?></td>
-                      <td><a class="btn btn-info" href="<?php echo base_url(); ?>index.php/MaintenanceHisInfo?MTID=<?php echo $row->MTID; ?>" role="button">รายละเอียด</a></td>
+                      <td><a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/MaintenanceHisInfo?MTID=<?php echo $row->MTID; ?>" role="button">รายละเอียด</a></td>
                     </tr>
                   <?php } ?>
                 </tbody>

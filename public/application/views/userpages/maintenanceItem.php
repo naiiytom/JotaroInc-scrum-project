@@ -347,10 +347,10 @@
                   </div>
 
                   <div class="col px-md-5 mt-3">
-                    <span class="tim-note"> <label for="ItemImage[]">
+                    <span class="tim-note"> <label for="ItemImage">
                         <H7> Image</H7>
                       </label> </span>
-                    <span class="tim-note"> <input type="file" class="form-control" name="ItemImage[]" id="ItemImage" multiple="multiple" accept="image/*"> </span>
+                    <span class="tim-note"> <input type="file" class="form-control" name="ItemImage" id="ItemImage" accept="image/*"> </span>
                   </div>
 
 

@@ -19,21 +19,17 @@ class UploadAndMaintenance extends CI_Controller
         $AccountID = '1';
         $StatusID = '3';
         //$AccountID = $this->input->get('AccountID');
-        if (isset($_FILES["ItemImage"])) {
-            foreach ($_FILES['ItemImage']['tmp_name'] as $key => $val) {
-                $file_tmp = $_FILES['ItemImage']['tmp_name'][$key];
-                if (empty($file_tmp)) {
-                    $MtImage = '';
-                } else {
-                    $MtImage = file_get_contents($file_tmp);
-                    $MtImage = base64_encode($MtImage);
-                }
-                $MTID = '';
-                $InformDate = date("Y-m-d H:i:s");
-            }
-            $this->Insert->insertrecordsMaintenance($ItemSN, $InformDate, $MtDetail, $MtImage, $HasID, $AccountID);
-            $this->Update->upDateStatusItemMaintenanceWhereItemID($ItemSN, $StatusID);
+        if (isset($_FILES['ItemImage'])) {
+            $ftemp = $_FILES['ItemImage']['tmp_name'];
+            $type = $_FILES['ItemImage']['type'];
+            $img = file_get_contents($ftemp);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($img);
+            $MtImage = $base64;
         }
+        $InformDate = date("Y-m-d H:i:s");
+        $this->Insert->insertrecordsMaintenance($ItemSN, $InformDate, $MtDetail, $MtImage, $HasID, $AccountID);
+        $this->Update->upDateStatusItemMaintenanceWhereItemID($ItemSN, $StatusID);
+
         header('Location: Maintenance');
     }
 }

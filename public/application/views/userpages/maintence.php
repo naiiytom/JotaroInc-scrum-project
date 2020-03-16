@@ -333,7 +333,7 @@
                       <td><?php echo $row->ItemYear; ?></td>
                       <td><?php echo $row->StatusName; ?></td>
                       <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/MaintenanceItem?ItemSN=<?php echo $row->ItemSN; ?>" role="button">แจ้งซ่อม</a></td>
-                      <td><a class="btn btn-success" href="<?php echo base_url(); ?>index.php/ItemInfomation?ItemSN=<?php echo $row->ItemSN; ?>" role="button">รายละเอียด</a></td>
+                      <td><a class="btn btn-warning" href="<?php echo base_url(); ?>index.php/ItemInfomation?ItemSN=<?php echo $row->ItemSN; ?>" role="button">รายละเอียด</a></td>
                     </tr>
                   <?php } ?>
                 </tbody>

@@ -29,15 +29,7 @@
 							</div>
 							<form class="user" method="POST" action="<?php echo base_url() ?>index.php/Login">
 								<div class="form-group row">
-									<div class="col-sm-8">
-										<select class="form-control " id="position">
-											<option value="เจ้าหน้าที่">เจ้าหน้าที่ประจำสาขา</option>
-											<option value="อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์">อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์</option>
-											<option value="อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ">อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ</option>
-											<option value="อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์">อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์</option>
-										</select>
-									</div>
-									<div class="col-sm-4">
+									<div class="col-sm-3">
 										<select class="form-control " id="prefix">
 											<option value="นาย">นาย</option>
 											<option value="นาง">นาง</option>
@@ -52,26 +44,34 @@
 											<option value="ศ.ดร.">ศ.ดร.</option>
 										</select>
 									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-sm-6 mb-3 mb-sm-0">
+									<div class="col-sm-4 mb-3 mb-sm-0">
 										<input required type="text" class="form-control " id="firstName" placeholder="First Name">
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-5">
 										<input required type="text" class="form-control " id="lastName" placeholder="Last Name">
 									</div>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6">
+										<select class="form-control " id="position">
+											<option value="เจ้าหน้าที่">เจ้าหน้าที่ประจำสาขา</option>
+											<option value="อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์">อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์</option>
+											<option value="อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ">อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ</option>
+											<option value="อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์">อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
 										<input type="text" class="form-control " id="phone" placeholder="Phone Number" pattern="(^0[0-9]{8,9})">
 									</div>
+								</div>
+								<div class="form-group row">
+
 									<div class="col-sm-6">
 										<input required type="email" class="form-control " id="inputEmail" placeholder="example@kku.ac.th" pattern="([\w\.-]+@kku.ac.th)">
 									</div>
-								</div>
-								<div class="form-group">
-									<input required type="text" class="form-control " id="userName" placeholder="User Name">
-
+									<div class="col-sm-6">
+										<input required type="text" class="form-control " id="userName" placeholder="User Name">
+									</div>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">

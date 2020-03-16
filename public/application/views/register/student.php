@@ -28,7 +28,7 @@
 							<div class="text-center">
 								<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 							</div>
-							<form class="user" method="POST" action="index.php/Login">
+							<form class="user" method="POST" action="Login">
 								<div class="form-group">
 									<input required type="text" class="form-control " id="studentID" placeholder="Student ID: 600000000-1" pattern="([0-9]{9}-[0-9]{1})">
 								</div>
