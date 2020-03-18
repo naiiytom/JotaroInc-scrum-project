@@ -1,50 +1,336 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.6 on win32)" generated="20200316 22:24:31.412" rpa="false">
-<suite id="s1" name="Test" source="D:\_proj\JotaroInc-scrum-project\robot\test.robot">
-<test id="s1-t1" name="Open Browser">
-<kw name="Open Browser">
+<robot generator="Robot 3.1.2 (Python 3.7.6 on win32)" generated="20200317 01:18:21.880" rpa="false">
+<suite id="s1" name="LoginPage" source="D:\_proj\JotaroInc-scrum-project\robot\LoginPage.robot">
+<test id="s1-t1" name="TC01 UserName and Password correct">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>http://localhost/</arg>
-<arg>Firefox</arg>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200316 22:24:31.451" level="FAIL">No keyword with name 'Open Browser' found.</msg>
-<status status="FAIL" starttime="20200316 22:24:31.451" endtime="20200316 22:24:31.451"></status>
+<msg timestamp="20200317 01:18:22.042" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:18:22.044" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-2.log</msg>
+<status status="PASS" starttime="20200317 01:18:22.042" endtime="20200317 01:18:29.275"></status>
 </kw>
-<status status="FAIL" starttime="20200316 22:24:31.449" endtime="20200316 22:24:31.452" critical="yes">No keyword with name 'Open Browser' found.</status>
-</test>
-<test id="s1-t2" name="Fail login">
-<kw name="Go To">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>http://localhost/login</arg>
+<arg>inputUsername</arg>
+<arg>Rattiyakorn</arg>
 </arguments>
-<msg timestamp="20200316 22:24:31.455" level="FAIL">No keyword with name 'Go To' found.</msg>
-<status status="FAIL" starttime="20200316 22:24:31.455" endtime="20200316 22:24:31.455"></status>
+<msg timestamp="20200317 01:18:29.276" level="INFO">Typing text 'Rattiyakorn' into text field 'inputUsername'.</msg>
+<status status="PASS" starttime="20200317 01:18:29.276" endtime="20200317 01:18:29.316"></status>
 </kw>
-<status status="FAIL" starttime="20200316 22:24:31.454" endtime="20200316 22:24:31.457" critical="yes">No keyword with name 'Go To' found.</status>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputPassword</arg>
+<arg>Miffy5758</arg>
+</arguments>
+<msg timestamp="20200317 01:18:29.317" level="INFO">Typing text 'Miffy5758' into text field 'inputPassword'.</msg>
+<status status="PASS" starttime="20200317 01:18:29.316" endtime="20200317 01:18:29.346"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:18:29.347" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:18:29.346" endtime="20200317 01:18:32.727"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Home</arg>
+</arguments>
+<msg timestamp="20200317 01:18:32.729" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Home'.</msg>
+<status status="PASS" starttime="20200317 01:18:32.727" endtime="20200317 01:18:32.729"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:18:32.730" endtime="20200317 01:18:33.585"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:18:22.042" endtime="20200317 01:18:33.585" critical="yes"></status>
 </test>
-<status status="FAIL" starttime="20200316 22:24:31.413" endtime="20200316 22:24:31.459"></status>
+<test id="s1-t2" name="TC02 UserName Not Correct and Password correct">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:18:33.587" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:18:33.588" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-3.log</msg>
+<status status="PASS" starttime="20200317 01:18:33.587" endtime="20200317 01:18:40.829"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputUsername</arg>
+<arg>Rattiya</arg>
+</arguments>
+<msg timestamp="20200317 01:18:40.830" level="INFO">Typing text 'Rattiya' into text field 'inputUsername'.</msg>
+<status status="PASS" starttime="20200317 01:18:40.830" endtime="20200317 01:18:40.867"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputPassword</arg>
+<arg>Miffy5758</arg>
+</arguments>
+<msg timestamp="20200317 01:18:40.868" level="INFO">Typing text 'Miffy5758' into text field 'inputPassword'.</msg>
+<status status="PASS" starttime="20200317 01:18:40.868" endtime="20200317 01:18:40.894"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:18:40.895" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:18:40.895" endtime="20200317 01:18:44.723"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Home</arg>
+</arguments>
+<msg timestamp="20200317 01:18:44.726" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Home'.</msg>
+<status status="PASS" starttime="20200317 01:18:44.723" endtime="20200317 01:18:44.726"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:18:44.726" endtime="20200317 01:18:45.692"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:18:33.586" endtime="20200317 01:18:45.692" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TC03 UserName correct and Password not correct">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:18:45.694" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:18:45.694" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-4.log</msg>
+<status status="PASS" starttime="20200317 01:18:45.693" endtime="20200317 01:18:52.803"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputUsername</arg>
+<arg>Rattiyakorn</arg>
+</arguments>
+<msg timestamp="20200317 01:18:52.804" level="INFO">Typing text 'Rattiyakorn' into text field 'inputUsername'.</msg>
+<status status="PASS" starttime="20200317 01:18:52.804" endtime="20200317 01:18:52.842"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputPassword</arg>
+<arg>Miffy</arg>
+</arguments>
+<msg timestamp="20200317 01:18:52.843" level="INFO">Typing text 'Miffy' into text field 'inputPassword'.</msg>
+<status status="PASS" starttime="20200317 01:18:52.843" endtime="20200317 01:18:52.869"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:18:52.870" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:18:52.870" endtime="20200317 01:18:53.091"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login</arg>
+</arguments>
+<msg timestamp="20200317 01:18:53.094" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<status status="PASS" starttime="20200317 01:18:53.091" endtime="20200317 01:18:53.094"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:18:45.693" endtime="20200317 01:18:53.095" critical="yes"></status>
+</test>
+<test id="s1-t4" name="TC04 UserName and Password not correct">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:18:53.097" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:18:53.098" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-5.log</msg>
+<status status="PASS" starttime="20200317 01:18:53.097" endtime="20200317 01:19:00.609"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputUsername</arg>
+<arg>Rattiya</arg>
+</arguments>
+<msg timestamp="20200317 01:19:00.609" level="INFO">Typing text 'Rattiya' into text field 'inputUsername'.</msg>
+<status status="PASS" starttime="20200317 01:19:00.609" endtime="20200317 01:19:00.643"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputPassword</arg>
+<arg>Miffy</arg>
+</arguments>
+<msg timestamp="20200317 01:19:00.644" level="INFO">Typing text 'Miffy' into text field 'inputPassword'.</msg>
+<status status="PASS" starttime="20200317 01:19:00.644" endtime="20200317 01:19:00.666"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:19:00.667" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:19:00.666" endtime="20200317 01:19:00.888"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login</arg>
+</arguments>
+<msg timestamp="20200317 01:19:00.890" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<status status="PASS" starttime="20200317 01:19:00.888" endtime="20200317 01:19:00.890"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:19:00.891" endtime="20200317 01:19:01.667"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:18:53.096" endtime="20200317 01:19:01.668" critical="yes"></status>
+</test>
+<test id="s1-t5" name="TC05 Not Input UserName and Input Password">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:19:01.670" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:19:01.670" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-6.log</msg>
+<status status="PASS" starttime="20200317 01:19:01.669" endtime="20200317 01:19:08.956"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputPassword</arg>
+<arg>Miffy5758</arg>
+</arguments>
+<msg timestamp="20200317 01:19:08.957" level="INFO">Typing text 'Miffy5758' into text field 'inputPassword'.</msg>
+<status status="PASS" starttime="20200317 01:19:08.957" endtime="20200317 01:19:08.998"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:19:08.999" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:19:08.998" endtime="20200317 01:19:09.220"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login</arg>
+</arguments>
+<msg timestamp="20200317 01:19:09.224" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<status status="PASS" starttime="20200317 01:19:09.221" endtime="20200317 01:19:09.224"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:19:09.224" endtime="20200317 01:19:10.114"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:19:01.669" endtime="20200317 01:19:10.114" critical="yes"></status>
+</test>
+<test id="s1-t6" name="TC06 Input UserName and Not Input Password">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:19:10.116" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:19:10.116" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-7.log</msg>
+<status status="PASS" starttime="20200317 01:19:10.115" endtime="20200317 01:19:18.935"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>inputUsername</arg>
+<arg>Rattiyakorn</arg>
+</arguments>
+<msg timestamp="20200317 01:19:18.936" level="INFO">Typing text 'Rattiyakorn' into text field 'inputUsername'.</msg>
+<status status="PASS" starttime="20200317 01:19:18.936" endtime="20200317 01:19:18.983"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:19:18.983" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:19:18.983" endtime="20200317 01:19:19.214"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login</arg>
+</arguments>
+<msg timestamp="20200317 01:19:19.217" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<status status="PASS" starttime="20200317 01:19:19.215" endtime="20200317 01:19:19.217"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:19:19.218" endtime="20200317 01:19:20.126"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:19:10.115" endtime="20200317 01:19:20.126" critical="yes"></status>
+</test>
+<test id="s1-t7" name="TC07 Not Input All">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${LOGINPAGE}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200317 01:19:20.128" level="INFO">Opening browser 'firefox' to base url 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<msg timestamp="20200317 01:19:20.129" level="INFO">Firefox driver log is always forced to to: D:\_proj\JotaroInc-scrum-project\robot\geckodriver-8.log</msg>
+<status status="PASS" starttime="20200317 01:19:20.128" endtime="20200317 01:19:27.346"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button</arg>
+</arguments>
+<msg timestamp="20200317 01:19:27.347" level="INFO">Clicking element 'xpath=/html/body/div/div/div/div/div/div/div[2]/div/form/button'.</msg>
+<status status="PASS" starttime="20200317 01:19:27.347" endtime="20200317 01:19:27.577"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login</arg>
+</arguments>
+<msg timestamp="20200317 01:19:27.580" level="INFO">Current location is 'http://10.199.66.227/SoftEn2020/Sec01/Jotaro%20Inc/index.php/Login'.</msg>
+<status status="PASS" starttime="20200317 01:19:27.578" endtime="20200317 01:19:27.580"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200317 01:19:27.581" endtime="20200317 01:19:28.463"></status>
+</kw>
+<status status="PASS" starttime="20200317 01:19:20.127" endtime="20200317 01:19:28.463" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200317 01:18:21.881" endtime="20200317 01:19:28.464"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="2">Critical Tests</stat>
-<stat pass="0" fail="2">All Tests</stat>
+<stat pass="7" fail="0">Critical Tests</stat>
+<stat pass="7" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="2" id="s1" name="Test">Test</stat>
+<stat pass="7" fail="0" id="s1" name="LoginPage">LoginPage</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20200316 22:24:31.446" level="ERROR">Error in file 'D:\_proj\JotaroInc-scrum-project\robot\test.robot': Importing test library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\envs\web\Scripts
-  C:\ProgramData\Anaconda3\envs\web\python37.zip
-  C:\ProgramData\Anaconda3\envs\web\DLLs
-  C:\ProgramData\Anaconda3\envs\web\lib
-  C:\ProgramData\Anaconda3\envs\web
-  C:\ProgramData\Anaconda3\envs\web\lib\site-packages</msg>
 </errors>
 </robot>
