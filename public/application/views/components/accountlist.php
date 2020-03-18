@@ -89,9 +89,7 @@
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Login">Login</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Register">Register</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>">Forgot Password</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Logout">Logout</a>
             <div class="collapse-divider"></div>
           </div>
         </div>
@@ -267,7 +265,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $username ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -340,8 +338,19 @@
                           <td><?php echo $row->AccountID; ?></td>
                           <td><?php echo $row->AUserName; ?></td>
                           <td>
-                            <a class="btn btn-primary" href="#" role="button"><?php echo $row->APassWord ?></a>
+                            <a class="btn btn-warning" role="button" onclick="ShowPassword(<?php echo $row->AccountID ?>)">Show Password</a>
+                            <div id="<?php echo $row->AccountID ?>" style="display: none"><?php echo $row->APassWord ?></div>
                           </td>
+                          <script>
+                            function ShowPassword($rowBut) {
+                              var x = document.getElementById($rowBut);
+                              if (x.style.display == "none") {
+                                x.style.display = "block";
+                              } else {
+                                x.style.display = "none";
+                              }
+                            }
+                          </script>
                           <td><?php echo $row->AccessName; ?></td>
                           <td>
                             <div id=isActive>

@@ -10,13 +10,24 @@ class NewItem extends CI_Controller
 		$this->load->database();
 		$this->load->model('components/Add');
 		$this->load->model('components/Query');
+		session_start();
 	}
 
 	public function index()
 	{
-		$this->load->view('style/header');
-		$this->load->view('components/newItem');
-		$this->load->view('style/footer');
+		$username =  array();
+		if (isset($_SESSION) && $_SESSION['logged_in'] == TRUE) {
+			if ($_SESSION['access'] == 0) {
+				$username =  array('username' => $_SESSION['username']);
+				$this->load->view('style/header');
+				$this->load->view('components/newItem', $username);
+				$this->load->view('style/footer');
+			} else {
+				header('Location: Home');
+			}
+		} else {
+			header('Location: Login');
+		}
 	}
 
 	public function add()

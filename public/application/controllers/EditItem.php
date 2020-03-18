@@ -14,22 +14,20 @@ class EditItem extends CI_Controller
 
     public function index()
     {
-        if(isset($_SESSION) && $_SESSION['logged_in'] == TRUE){
-			if($_SESSION['access'] == 0){
+        if (isset($_SESSION) && $_SESSION['logged_in'] == TRUE) {
+            if ($_SESSION['access'] == 0) {
                 $result['username'] = $_SESSION['username'];
                 $ItemSN = $this->input->get('ItemSN');
                 $result['data'] = $this->Query->getAnItemFromDB($ItemSN);
                 $this->load->view('style/header');
                 $this->load->view('components/editItem', $result);
                 $this->load->view('style/footer');
+            } else {
+                header('Location: Home');
             }
-			else {
-				header('Location: Home');
-			}
-		}
-		else {
-			header('Location: Login');
-		}
+        } else {
+            header('Location: Login');
+        }
     }
 
     public function update($ItemSN)

@@ -12,6 +12,21 @@
 
 	<title>Register as Student</title>
 
+	<script language="javascript">
+		//จับ Event key
+		function myFunction() {
+			let SpacialCharacter = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+			$('input[type=password]').on("keypress", function(event) {
+				var keyChar = String.fromCharCode(event.keyCode);
+				var output = SpacialCharacter.test(keyChar);
+				var text = $(this).val();
+				$(this).val(text.replace(SpacialCharacter, ''));
+				console.log(event.key);
+				return !output;
+			});
+		}
+	</script>
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -28,51 +43,65 @@
 							<div class="text-center">
 								<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 							</div>
-							<form class="user" method="POST" action="Login">
+							<form class="user" method="POST" action="<?php echo base_url(); ?>index.php/CheckRegister">
 								<div class="form-group">
-									<input required type="text" class="form-control " id="studentID" placeholder="Student ID: 600000000-1" pattern="([0-9]{9}-[0-9]{1})">
+									<input required type="text" class="form-control " name="studentID" id="studentID" placeholder="Student ID: 600000000-1" pattern="([0-9]{9}-[0-9]{1})">
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-3">
-										<select class="form-control " id="prefix">
+										<select class="form-control " name="prefix" id="prefix">
 											<option value="นาย">นาย</option>
 											<option value="นาง">นาง</option>
 											<option value="นางสาว">นางสาว</option>
 										</select>
 									</div>
 									<div class="col-sm-4 mb-3 mb-sm-0">
-										<input required type="text" class="form-control " id="firstName" placeholder="First Name">
+										<input required type="text" class="form-control " name="firstName" id="firstName" placeholder="First Name">
 									</div>
 									<div class="col-sm-5">
-										<input required type="text" class="form-control" id="lastName" placeholder="Last Name">
-									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-sm-5">
-										<select class="form-control " id="majorAndLevel" aria-placeholder="Major and Level">
-											<option value="ปริญญาตรี">ปริญญาตรี</option>
-											<option value="ปริญญาโท">ปริญญาโท</option>
-											<option value="ปริญญาตรี">ปริญญาเอก</option>
-										</select>
-									</div>
-									<div class="col-sm-7">
-										<input required type="text" class="form-control " id="phone" placeholder="Phone Number" pattern="(^0[0-9]{8,9})">
+										<input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name">
 									</div>
 								</div>
 								<div class="form-group">
-									<input required type="email" class="form-control " id="inputEmail" placeholder="Email Address: example@kkumail.com" patter="([\w\.-]+@kkumail.com)">
+									<select class="form-control " name="majorAndLevel" id="majorAndLevel" aria-placeholder="Major and Level">
+
+										<option disabled value="หลักสูตรระดับปริญญาตรี"><b>หลักสูตรระดับปริญญาตรี</b> </option>
+										<option value="วิทยาการคอมพิวเตอร์">วิทยาการคอมพิวเตอร์</option>
+										<option value="เทคโนโลยีสารสนเทศ">เทคโนโลยีสารสนเทศ</option>
+										<option value="ภูมิสารสนเทศศาสตร์">ภูมิสารสนเทศศาสตร์</option>
+										<option disabled><b>-----------</b> </option>
+
+										<option disabled value="หลักสูตรระดับปริญญาโท"><b>หลักสูตรระดับปริญญาโท</b> </option>
+										<option value="วิทยาการคอมพิวเตอร์">วิทยาการคอมพิวเตอร์</option>
+										<option value="ภูมิสารสนเทศศาสตร์">ภูมิสารสนเทศศาสตร์</option>
+										<option value="การรับรู้ระยะไกลและระบบสารสนเทศภูมิศาสตร์">การรับรู้ระยะไกลและระบบสารสนเทศภูมิศาสตร์</option>
+										<option disabled><b>-----------</b> </option>
+
+										<option disabled value="หลักสูตรระดับปริญญาเอก"><b>หลักสูตรระดับปริญญาเอก</b> </option>
+										<option value="วิทยาการคอมพิวเตอร์ หลักสูตรนานาชาติ">วิทยาการคอมพิวเตอร์ หลักสูตรนานาชาติ</option>
+										<option value="เทคโนโลยีสารสนเทศ หลักสูตรนานาชาติ">เทคโนโลยีสารสนเทศ หลักสูตรนานาชาติ</option>
+										<option value="การรับรู้ระยะไกลและระบบสารสนเทศภูมิศาสตร์"> การรับรู้ระยะไกลและระบบสารสนเทศภูมิศาสตร์</option>
+
+									</select>
+								</div>
+								<div class="form-group">
+									<input required type="text" class="form-control " name="phone" id="phone" placeholder="Phone Number" pattern="(^0[0-9]{8,9})">
+
+								</div>
+								<div class="form-group">
+									<input required type="email" class="form-control " name="inputEmail" id="inputEmail" placeholder="Email Address: example@kkumail.com" patter="([\w\.-]+@kkumail.com)">
 								</div>
 
 								<div class="form-group">
-									<input required type="text" class="form-control " id="userName" placeholder="User Name">
+									<input required type="text" class="form-control " name="userName" id="userName" placeholder="User Name">
 								</div>
 
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
-										<input required type="password" class="form-control " id="inputPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+										<input required type="password" class="form-control " name="inputPassword" id="inputPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeypress="myFunction()">
 									</div>
 									<div class="col-sm-6">
-										<input required type="password" class="form-control " id="repeatPassword" placeholder="Repeat Password">
+										<input required type="password" class="form-control " id="repeatPassword" placeholder="Repeat Password" onkeypress="myFunction()">
 									</div>
 								</div>
 								<div id="message form-control" style="display: none">
@@ -83,9 +112,7 @@
 									<p id="length" class="invalid">Minimum <b>8 characters</b></p>
 									<p id="repeat" class="invalid">Match between <b>Password</b> and <b>Repeat Password</b></p>
 								</div>
-								<button class="btn btn-primary  btn-block">
-									Register Account
-								</button>
+								<input required type="submit" class="btn btn-primary  btn-block" id="submit" placeholder="Register Account">
 							</form>
 							<hr>
 							<div class="text-center">

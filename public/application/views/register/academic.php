@@ -11,6 +11,22 @@
 	<meta name="author" content="">
 
 	<title>Register as Staff/Instructor</title>
+
+	<script language="javascript">
+		//จับ Event key
+		function myFunction() {
+			let SpacialCharacter = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+			$('input[type=password]').on("keypress", function(event) {
+				var keyChar = String.fromCharCode(event.keyCode);
+				var output = SpacialCharacter.test(keyChar);
+				var text = $(this).val();
+				$(this).val(text.replace(SpacialCharacter, ''));
+				console.log(event.key);
+				return !output;
+			});
+		}
+	</script>
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -27,10 +43,18 @@
 							<div class="text-center">
 								<h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
 							</div>
-							<form class="user" method="POST" action="<?php echo base_url() ?>index.php/Login">
+							<form class="user" method="POST" action="<?php echo base_url() ?>index.php/CheckRegister">
 								<div class="form-group row">
-									<div class="col-sm-3">
-										<select class="form-control " id="prefix">
+									<div class="col-sm-8">
+										<select class="form-control " name="position" id="position">
+											<option value="เจ้าหน้าที่">เจ้าหน้าที่ประจำสาขา</option>
+											<option value="อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์">อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์</option>
+											<option value="อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ">อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ</option>
+											<option value="อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์">อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์</option>
+										</select>
+									</div>
+									<div class="col-sm-4">
+										<select class="form-control " name="prefix" id="prefix">
 											<option value="นาย">นาย</option>
 											<option value="นาง">นาง</option>
 											<option value="นางสาว">นางสาว</option>
@@ -44,41 +68,33 @@
 											<option value="ศ.ดร.">ศ.ดร.</option>
 										</select>
 									</div>
-									<div class="col-sm-4 mb-3 mb-sm-0">
-										<input required type="text" class="form-control " id="firstName" placeholder="First Name">
-									</div>
-									<div class="col-sm-5">
-										<input required type="text" class="form-control " id="lastName" placeholder="Last Name">
-									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-sm-6">
-										<select class="form-control " id="position">
-											<option value="เจ้าหน้าที่">เจ้าหน้าที่ประจำสาขา</option>
-											<option value="อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์">อาจารย์ประจำหลักสูตรวิทยาการคอมพิวเตอร์</option>
-											<option value="อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ">อาจารย์ประจำหลักสูตรเทคโนโลยีสารสนเทศ</option>
-											<option value="อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์">อาจารย์ประจำหลักสูตรภูมิสารสนเทศศาสตร์</option>
-										</select>
-									</div>
-									<div class="col-sm-6">
-										<input type="text" class="form-control " id="phone" placeholder="Phone Number" pattern="(^0[0-9]{8,9})">
-									</div>
-								</div>
-								<div class="form-group row">
-
-									<div class="col-sm-6">
-										<input required type="email" class="form-control " id="inputEmail" placeholder="example@kku.ac.th" pattern="([\w\.-]+@kku.ac.th)">
-									</div>
-									<div class="col-sm-6">
-										<input required type="text" class="form-control " id="userName" placeholder="User Name">
-									</div>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
-										<input required type="password" class="form-control " id="inputPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+										<input required type="text" class="form-control " name="firstName" id="firstName" placeholder="First Name">
 									</div>
 									<div class="col-sm-6">
-										<input type="password" class="form-control " id="repeatPassword" placeholder="Repeat Password">
+										<input required type="text" class="form-control " name="lastName" id="lastName" placeholder="Last Name">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6">
+										<input type="text" class="form-control " id="phone" name="phone" placeholder="Phone Number" pattern="(^0[0-9]{8,9})">
+									</div>
+									<div class="col-sm-6">
+										<input required type="email" class="form-control " name="inputEmail" id="inputEmail" placeholder="example@kku.ac.th" pattern="([\w\.-]+@kku.ac.th)">
+									</div>
+								</div>
+								<div class="form-group">
+									<input required type="text" class="form-control " name="userName" id="userName" placeholder="User Name">
+
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input required type="password" class="form-control " name="inputPassword" id="inputPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeypress="myFunction()">
+									</div>
+									<div class="col-sm-6">
+										<input type="password" class="form-control " id="repeatPassword" placeholder="Repeat Password" onkeypress="myFunction()">
 									</div>
 								</div>
 								<div id="message form-control" style="display: none">
@@ -89,9 +105,7 @@
 									<p id="length" class="invalid">Minimum <b>8 characters</b></p>
 									<p id="repeat" class="invalid">Match between <b>Password</b> and <b>Repeat Password</b></p>
 								</div>
-								<button class="btn btn-primary  btn-block">
-									Register Account
-								</button>
+								<input type="submit" class="btn btn-primary  btn-block " id="submit" placeholder="Register Account">
 							</form>
 							<hr>
 							<div class="text-center">

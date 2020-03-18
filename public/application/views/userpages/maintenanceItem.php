@@ -89,9 +89,7 @@
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Login">Login</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Register">Register</a>
-            <a class="collapse-item" href="<?php echo base_url(); ?>">Forgot Password</a>
+            <a class="collapse-item" href="<?php echo base_url(); ?>index.php/Logout">Logout</a>
             <div class="collapse-divider"></div>
           </div>
         </div>
@@ -267,7 +265,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $username ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -338,8 +336,8 @@
                         <H7> Priority</H7>
                       </label> </span>
                     <span class="tim-note">
-                      <select id="HasID" name="HasID" class="form-control">
-                        <option value="0" selected disabled hidden>Choose here</option>
+                      <select id="HasID" name="HasID" class="form-control" required>
+                        <option value="0">--Choose here--</option>
                         <option value="0">Not Important</option>
                         <option value="1">Important</option>
                       </select>
