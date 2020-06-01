@@ -1,5 +1,17 @@
 # Jotaro Inc - Web Application: Part of Software Engineering Class
 
-a project using scrum framework to release product in each sprint, which sums up to 3 sprints.
+A semester project, which was part of Software Engineering class, using scrum framework to release product in each sprint, which sums up to 3 sprints.
 
-using docker or host this using xammp
+Using docker or host this locally using xammp
+
+## Run on docker using docker composer
+
+`
+docker
+`
+
+`
+docker-compose up -d
+`
+
+To acces website go to `http://localhost/`

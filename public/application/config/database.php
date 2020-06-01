@@ -75,10 +75,17 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+<<<<<<< Updated upstream
 	'hostname' => '',
 	'username' => '',
 	'password' => '',
 	'database' => '',
+=======
+	'hostname' => 'localhost',
+	'username' => '*****', // db username
+	'password' => '*****', // db password
+	'database' => 'db', // database
+>>>>>>> Stashed changes
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
